@@ -25,6 +25,7 @@ add_user_meta( $user_id, 'blankslate_notice_dismissed_3', 'true', true );
 }
 add_action( 'wp_enqueue_scripts', 'blankslate_enqueue' );
 function blankslate_enqueue() {
+	wp_enqueue_style('style',get_template_directory().'/dist/css/styles.css')
 wp_enqueue_style( 'blankslate-style', get_stylesheet_uri() );
 wp_enqueue_script( 'jquery' );
 }
