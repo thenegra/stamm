@@ -168,6 +168,24 @@ function my_acf_init() {
 			'icon'				=> 'media-spreadsheet',
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'mod-uno',
+			'title'				=> __('Content: Text + Media'),
+			'description'		=> __('Bloque de contenidos texto y multimedia'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-numeros',
+			'title'				=> __('Content: Numbers'),
+			'description'		=> __('Bloque de números destacados'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
 	}
 }
 
