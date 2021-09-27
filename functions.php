@@ -149,3 +149,44 @@ add_action('get_header', 'my_filter_head');
   function my_filter_head() {
     remove_action('wp_head', '_admin_bar_bump_cb');
   }
+
+
+
+add_action('acf/init', 'my_acf_init');
+function my_acf_init() {
+	
+	// check function exists
+	if( function_exists('acf_register_block') ) {
+		
+		// register a testimonial block
+		acf_register_block(array(
+			'name'				=> 'mod-hero',
+			'title'				=> __('Content: Page hero'),
+			'description'		=> __('Bloque de destacado principal de una página'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+	}
+}
+
+function render_block_acf( $block ) {
+	
+	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
+	$slug = str_replace('acf/', '', $block['name']);
+	
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists( get_theme_file_path("/template-parts/block/content-{$slug}.php") ) ) {
+		include( get_theme_file_path("/template-parts/block/content-{$slug}.php") );
+	}
+}
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz-_';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}

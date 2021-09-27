@@ -1,5 +1,49 @@
+@import "compass/css3";
+@import "flexbox";
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;600&family=Chivo:wght@300;400&display=swap');
+$c_negro: #272727;
+$c_blanco: #fff;
+$c_gris: #d2d2d2;
+$c_verde: #00d89d;
+
 html{
 	font-family: 'Archivo',Helvetica,Arial,sans-serif;
 	background: #fafafa;
+	font-size: 16px;
+}
+.tit-uno{
+	font-size: 2.5rem;
+}
+.main-container{
+	display: block;
+	width: 96%;
+	margin: auto;
+	max-width: 1480px;
+}
+.inner-padding{
+	padding: .5rem;
+}
+.hero{
+	display: block;
+	width: 100%;
+	background: $c_verde;
+	min-height: 70vh;
+	@include flexbox();
+	@include flex-direction(column);
+	
+	@include justify-content(center);
+	.main-container{
+		position: relative;
+		min-height: 50vh;
+		
+		@include flexbox();
+		.contenedor-principal{
+			display: block;
+			background: $c_gris;
+			width: 50%;
+		}
+		.contenedor-secundario{
+			background: $c_negro;
+		}
+	}
 }
