@@ -7,7 +7,7 @@ $fotos = get_field('imagenes_feature');
 		<div class="contenedor-principal inner-padding" style="background-image:url('<?php echo $fotos['base']['url'];?>')">
 			<h1 class="mega"><?php echo get_field('titulo');?> asdf</h1>		
 			<?php if(get_field('bajada')):?>
-			<div class="bajada"><?php echo get_field('bajada'); ?></div>
+			<div class="bajada tit-dos"><?php echo get_field('bajada'); ?></div>
 			<?php endif; ?>
 		</div>
 		
