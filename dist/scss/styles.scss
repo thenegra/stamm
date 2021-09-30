@@ -411,7 +411,7 @@ h4,.subtit-dos{
 	}
 	.main-container{
 
-		min-height: 50vh;
+		
 		@include flexbox();
 		@include align-items(stretch);
 		
@@ -474,6 +474,11 @@ h4,.subtit-dos{
 			}
 		}
 		
+	}
+	&.modulo-uno{
+		.main-container{
+			min-height: 50vh;
+		}
 	}
 	&.modulo-dos{
 		.main-container{
