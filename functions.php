@@ -234,6 +234,15 @@ function my_acf_init() {
 			'icon'				=> 'media-spreadsheet',
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'mod-employees',
+			'title'				=> __('Content: Employees'),
+			'description'		=> __('Bloque de empleados separados por área.'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
 	}
 }
 
