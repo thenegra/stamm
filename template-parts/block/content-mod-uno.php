@@ -27,10 +27,11 @@
 					?>
 					<div class="video-container">
 						<video loop="loop" autoplay="" playsinline="" muted="" id="mejs_6204682393310839_html5" preload="none" src="<?php echo get_field('video')['url']; ?>">
-					</div>
-				<source type="video/mp4" src="https://www.zymergen.com/wp-content/uploads/2020/12/LD_Zymergen_Near_Far_Product-Montage_Generic.mp4">
+							<source type="video/mp4" src="html5" preload="none" src="<?php echo get_field('video')['url']; ?>">
 				
-			</video>
+						</video>
+					</div>
+				
 					<?php
 					break;
 			} ?>

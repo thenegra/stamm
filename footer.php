@@ -1,4 +1,11 @@
 <?php //get_sidebar(); ?>
+<?php 
+	global $post;
+    $post_slug = $post->post_name;
+
+    
+ if($post_slug != 'landing'):?>
+<header id="header" role="banner">
 </div>
 <section class="full-contact f-blanco">
 	<div class="main-container">
@@ -26,6 +33,7 @@
 		</div>
 	</div>
 </footer>
+<?php endif;?>
 </div>
 </body>
 </html>
