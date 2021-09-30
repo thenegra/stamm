@@ -5,7 +5,6 @@
 
     
  if($post_slug != 'landing'):?>
-<header id="header" role="banner">
 </div>
 <section class="full-contact f-blanco">
 	<div class="main-container">

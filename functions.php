@@ -30,6 +30,7 @@ function blankslate_enqueue() {
 	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'main',get_template_directory_uri().'/dist/js/main.js');
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
 add_action( 'wp_footer', 'blankslate_footer' );
@@ -243,6 +244,15 @@ function my_acf_init() {
 			'icon'				=> 'media-spreadsheet',
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'mod-big-hero',
+			'title'				=> __('Content: Big hero'),
+			'description'		=> __('Hero principal de la home'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
 	}
 }
 
@@ -265,3 +275,5 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'feed-size', 1080, 1350, true ); 

@@ -16,9 +16,16 @@
 <div id="wrapper" class="hfeed">
 	<?php if($post_slug != 'landing'):?>
 <header id="header" role="banner">
+	<div class="main-container">
+		<div class="logo">
+			<h1><a href="/"><img src="<?php echo get_template_directory_uri()?>/dist/img/st_logo_green.svg" alt="STÄMM"></a></h1>
+		</div>
+		<div class="nav">
+			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
+		</div>
+	</div>
 	
 	
-	<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
 	
 </header>
 <?php endif; ?>
