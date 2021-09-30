@@ -11,8 +11,8 @@
 	</div>
 	<div class="contenido-marca">
 		
-		<h2 class="destacado">We are working<br>on a brand<br>new website</h2>
-		<p class="subtit">Come back soon</p>
+		<h2 class="destacado">We are working<br>on a brand<br>new website.</h2>
+		<p class="subtit">Come back soon.</p>
 	</div>
 	
 </div>
