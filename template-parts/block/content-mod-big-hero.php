@@ -10,7 +10,7 @@ $fotos = get_field('imagenes_feature');
 			<div class="bajada"><?php echo get_field('bajada'); ?></div>
 			<?php endif; ?>
 		</div>
-		<div class="contenedor-secundario" style="background-image:url('<?php echo get_field('imagen')['url'];?>')"></div>
+		<div class="contenedor-secundario" style="background-image:url('<?php echo get_field('foto')['url'];?>')"></div>
 	</div>
 	
 </section>
