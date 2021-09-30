@@ -37,6 +37,16 @@ p{
 	display: block;
 	height: 1rem;
 }
+.no-desk{
+	display: none;
+	@media all and (max-width: 768px){
+		display: block;
+
+	}
+}
+.breaker{
+width: 5em;
+}
 .mega{
 	font-size: 7rem;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
