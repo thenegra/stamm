@@ -46,7 +46,7 @@ p{
 		font-size: inherit;
 		line-height: inherit;
 	}
-	
+
 	@media all and (max-width: 1024px){
 		font-size: 5rem;
 	}
@@ -515,6 +515,9 @@ h4,.subtit-dos{
 	}
 	&.big-hero{
 		min-height: 90vh;
+		.bajada{
+			margin-top: 2em;
+		}
 	}
 	.main-container{
 		position: relative;
