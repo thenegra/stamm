@@ -751,6 +751,9 @@ h4,.subtit-dos{
 		width: 15rem;
     	margin-top: .4rem;
     	position: relative;
+    	@media all and (max-width: 1024px){
+    		width: 10rem;
+    	}
     	&:after{
     		//content: "";
     		background: rgba($c_gris,.3);
