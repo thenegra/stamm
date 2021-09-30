@@ -398,7 +398,7 @@ h4,.subtit-dos{
 	}
 	.main-container{
 
-
+		min-height: 50vh;
 		@include flexbox();
 		@include align-items(stretch);
 		
