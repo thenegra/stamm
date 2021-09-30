@@ -6,7 +6,7 @@
     
  if($post_slug != 'landing'):?>
 </div>
-<section class="full-contact f-blanco">
+<section class="full-contact f-blanco" id="contact">
 	<div class="main-container">
 		<header>
 			<h3 class="subtit c-verde">Contact us</h3>
