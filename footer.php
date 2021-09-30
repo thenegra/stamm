@@ -10,7 +10,7 @@
 	<div class="main-container">
 		<header>
 			<h3 class="subtit c-verde">Contact us</h3>
-			<span class="mega">Join the next biotech revolution</span>
+			<span class="mega" style="display: block; max-width: 13em;">Join the next biotech revolution</span>
 		</header>
 	</div>
 </section>
