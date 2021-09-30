@@ -21,7 +21,12 @@
 			<h1><a href="/"><img src="<?php echo get_template_directory_uri()?>/dist/img/st_logo_green.svg" alt="STÄMM"></a></h1>
 		</div>
 		<div class="nav">
+			<a class="hamb">
+				<i class="fa fa-bars"></i>
+			</a>
+			<div class="menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
+			</div>
 		</div>
 	</div>
 	

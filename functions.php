@@ -26,6 +26,8 @@ add_user_meta( $user_id, 'blankslate_notice_dismissed_3', 'true', true );
 add_action( 'wp_enqueue_scripts', 'blankslate_enqueue' );
 function blankslate_enqueue() {
 	wp_enqueue_style( 'reset', get_stylesheet_uri() );
+	    wp_register_style( 'Font_Awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+wp_enqueue_style('Font_Awesome');
 	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css');
 	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	
