@@ -1,23 +1,13 @@
 </div>
-<section class="modulo-numeros f-negro">
+<section class="modulo-numeros f-<?php echo get_field('diseno')['fondo']; ?>">
 	<div class="main-container">
 		<ul class="numeros">
+			<?php foreach(get_field('contenidos') as $cont):?>
 			<li>
-				<span class="destacado">40M</span>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing eliit </p>
+				<span class="destacado"><?php echo $cont['numero'];?></span>
+				<div class="bajada"><?php echo $cont['bajada'];?></div>
 			</li>
-			<li>
-				<span class="destacado">40M</span>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing eliit </p>
-			</li>
-			<li>
-				<span class="destacado">40M</span>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing eliit </p>
-			</li>
-			<li>
-				<span class="destacado">40M</span>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing eliit </p>
-			</li>
+			<?php endforeach;?>
 		</ul>
 	</div>
 </section>

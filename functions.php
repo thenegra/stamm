@@ -27,7 +27,10 @@ add_action( 'wp_enqueue_scripts', 'blankslate_enqueue' );
 function blankslate_enqueue() {
 	wp_enqueue_style( 'reset', get_stylesheet_uri() );
 	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css');
+	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+	
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
 add_action( 'wp_footer', 'blankslate_footer' );
 function blankslate_footer() {
@@ -178,9 +181,54 @@ function my_acf_init() {
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
 		acf_register_block(array(
+			'name'				=> 'mod-featured-content',
+			'title'				=> __('Content: Featured - Text + Media'),
+			'description'		=> __('Bloque de contenidos texto y multimedia'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-dos',
+			'title'				=> __('Content: Two columns'),
+			'description'		=> __('Bloque de dos columnas con contenidos'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-phrase',
+			'title'				=> __('Content: Featured phrase'),
+			'description'		=> __('Bloque de frase destacada'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
 			'name'				=> 'mod-numeros',
 			'title'				=> __('Content: Numbers'),
 			'description'		=> __('Bloque de números destacados'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-bloque-grown',
+			'title'				=> __('Content: 3 mods - Grown, Wired, Coded'),
+			'description'		=> __('Bloque de modelos de desarrollo Stämm'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-slider-contents',
+			'title'				=> __('Content: Slide de contenidos'),
+			'description'		=> __('Bloque de slide de contenidos (tecnologías, etc).'),
 			'render_callback'	=> 'render_block_acf',
 			'category'			=> 'design',
 			'icon'				=> 'media-spreadsheet',
