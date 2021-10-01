@@ -333,11 +333,14 @@ h4,.subtit-dos{
 /* Bloque employee*/
 .employee{
 	background: #f00;
-	display: block;
+	
 	max-width: 23%;
 	width: 100%;
 	margin-right: 2%;
 	margin-bottom: 2%;
+	@include flexbox();
+	@include align-items(stretch);
+	@include flex-direction(column);
 	@media all and (max-width: 1024px){
 		max-width: 31%;
 	}
