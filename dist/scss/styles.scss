@@ -986,10 +986,17 @@ h4,.subtit-dos{
 			&.input-container{
 				@include flexbox();
 				@include flex-direction(column);
-				@include justify-content(flex-start);
-				@include align-items(flex-end);
+				@include justify-content(flex-end);
+				@include align-items(flex-start);
 				input{
 					width: auto;
+					line-height: 1;
+					padding: .5em 1em;
+					border:none!important;
+					@include border-radius(1rem);
+					&:hover{
+						background: $c_negro;
+					}
 				}
 			}
 			&.area{
