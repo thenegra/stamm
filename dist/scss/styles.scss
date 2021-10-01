@@ -971,7 +971,9 @@ h4,.subtit-dos{
 		.col{
 			display: block;
 			width: 31%;
+			margin: 1rem 0;
 			margin-right: 2%;
+
 			@media all and (max-width: 1024px){
 				width: 48%;
 				margin-right: 2%;
