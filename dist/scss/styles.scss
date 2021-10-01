@@ -973,7 +973,9 @@ h4,.subtit-dos{
 			width: 31%;
 			margin: 1rem 0;
 			margin-right: 2%;
-
+			&.area{
+				width: 64%;
+			}
 			@media all and (max-width: 1024px){
 				width: 48%;
 				margin-right: 2%;
