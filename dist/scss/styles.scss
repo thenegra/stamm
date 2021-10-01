@@ -286,21 +286,30 @@ h4,.subtit-dos{
 .job{
 	
 	padding: 2rem 0;
-	.contents{
-		display: inline-block;
-		vertical-align: bottom;
-	}
 	h3{
 		margin-bottom: 0;
-		margin-right: .5rem;
-		line-height: .9;
-		
+			
 	}
 	.boton{
-		display: inline-block;
-		vertical-align: bottom;
-		margin: 0;
-		font-size: 1rem;
+		margin-top: .5em;
+	}
+	@media all and (min-width: 1025px){
+		.contents{
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		h3{
+			margin-bottom: 0;
+			margin-right: .5rem;
+			line-height: .9;
+			
+		}
+		.boton{
+			display: inline-block;
+			vertical-align: bottom;
+			margin: 0;
+			font-size: 1rem;
+		}
 	}
 }
 
