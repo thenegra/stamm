@@ -983,6 +983,15 @@ h4,.subtit-dos{
 			width: 31%;
 			margin: 1rem 0;
 			margin-right: 2%;
+			position: relative;
+			.wpcf7-not-valid-tip{
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				padding: .5em;
+				font-size: .8rem;
+				color: $c_negro;
+			}
 			&.input-container{
 				@include flexbox();
 				@include flex-direction(column);
@@ -994,6 +1003,8 @@ h4,.subtit-dos{
 					padding: .5em 1.5em;
 					border:none!important;
 					@include border-radius(1.2rem);
+					cursor: pointer;
+					margin: 0;
 					&:hover{
 						background: $c_negro;
 						color: $c_blanco;
