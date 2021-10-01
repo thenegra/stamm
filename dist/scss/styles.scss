@@ -542,6 +542,7 @@ h4,.subtit-dos{
 				width: 50%;
 			}
 			.texto{
+
 				@media all and (max-width: 1024px){
 					max-width: 80%;
 				}
@@ -555,7 +556,7 @@ h4,.subtit-dos{
 			padding: 3rem 5%;
 			@media all and (min-width: 1025px){
 				padding: 4rem 0rem;
-
+				padding-right: 5%;
 			}
 			&.foto{
 				.video-container{
@@ -600,7 +601,7 @@ h4,.subtit-dos{
 	}
 	&.modulo-uno{
 		.main-container{
-			min-height: 50vh;
+			min-height: 65vh;
 		}
 	}
 	&.modulo-dos{
