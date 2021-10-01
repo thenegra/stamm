@@ -328,11 +328,14 @@ h4,.subtit-dos{
 .employee-area{
 	@include flexbox();
 	@include flex-wrap(wrap);
+	@include align-items(stretch);
 }
 /* Bloque employee*/
 .employee{
+	background: #f00;
 	display: block;
 	max-width: 23%;
+	width: 100%;
 	margin-right: 2%;
 	margin-bottom: 2%;
 	@media all and (max-width: 1024px){
