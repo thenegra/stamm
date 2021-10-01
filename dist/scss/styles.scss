@@ -990,10 +990,11 @@ h4,.subtit-dos{
 					content: "";
 					display: block;
 					position: absolute;
-					width: 1rem;
-					height: 1rem;
+					width: .8rem;
+					height: .8rem;
+					margin-top: -.2rem;
 					@include transform(translateY(-50%) rotate(-45deg));
-					right: 1.5rem;
+					right: 1.2rem;
 					top: 50%;
 					border-bottom: 1px solid $c_verde;
 					border-left: 1px solid $c_verde;
