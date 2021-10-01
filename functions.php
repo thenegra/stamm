@@ -297,6 +297,7 @@ function generateRandomString($length = 10) {
 }
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'feed-size', 1080, 1350, true ); 
+add_image_size( 'foto-hq', 1920, 1080, true ); 
 
 function slugify($text, string $divider = '-')
 {

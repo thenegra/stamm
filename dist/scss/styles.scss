@@ -234,7 +234,7 @@ h4,.subtit-dos{
 	background: $c_gris;
 	color: $c_negro;
 	.c-verde{
-		color: $c_blanco;
+		color: $c_blanco
 	}
 	.boton{
 		background: $c_negro;
@@ -258,6 +258,27 @@ h4,.subtit-dos{
 
 /* Bloques  */
 
+/* Bloque galería */
+.mod-galeria{
+	position: relative;
+	.galeria{
+
+	}
+	.main-container{
+		max-width: 120vh;
+		.slick-dots{
+			position: absolute;
+			bottom: 1rem;
+			width: 100%;
+			left: 0;
+			@include justify-content(center);
+			
+			li.slick-active{
+					background: $c_blanco!important;
+			}
+		}
+	}
+}
 /* Bloque team search */
 .mod-team-search{
 	padding: 2rem 0;
@@ -326,34 +347,38 @@ h4,.subtit-dos{
 			position: absolute;
 			bottom: 0rem;
 			left: 0;
-			@include flexbox();
-			li{
-				display: block;
-				width: 1rem;
-				height: 1rem;
-				cursor: pointer;
-				border: 2px solid;
-
-				@include box-sizing(border-box);
-				margin: 0;
-				padding: 0;
-				@include border-radius(50%);
-				margin-right: .5rem;
-				&.slick-active{
-					background: $c_blanco;
-				}
-				button{
-					font-size: 0;
-					height: 0;
-					display: none;
-					background: none;
-					border:none;
-					outline: none;
-				}
-			}
 		}
 	}
 
+}
+
+.slick-dots{
+	
+	@include flexbox();
+	li{
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		cursor: pointer;
+		border: 2px solid;
+
+		@include box-sizing(border-box);
+		margin: 0;
+		padding: 0;
+		@include border-radius(50%);
+		margin-right: .5rem;
+		&.slick-active{
+			background: $c_blanco;
+		}
+		button{
+			font-size: 0;
+			height: 0;
+			display: none;
+			background: none;
+			border:none;
+			outline: none;
+		}
+	}
 }
 .tech-slide{
 	
