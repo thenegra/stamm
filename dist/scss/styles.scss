@@ -697,6 +697,9 @@ h4,.subtit-dos{
 				min-width: 15%;
 				padding-right: 3rem;
 				max-width: 25%;
+				@media all and (max-width: 1024px){
+					width: 50%;
+				}
 			}
 		}
 		.contenedor-secundario{
