@@ -340,6 +340,14 @@ h4,.subtit-dos{
 	@media all and (max-width: 768px){
 		max-width: 48%;
 	}
+	.subtit-uno{
+		margin-top: .15rem;
+		margin-bottom: .5rem;
+	}
+	.subtit-dos{
+		margin-bottom: 0;
+		text-decoration: none;
+	}
 }
 
 /* Bloque slider tecnologías */
