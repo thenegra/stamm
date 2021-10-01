@@ -31,7 +31,7 @@ wp_enqueue_style('Font_Awesome');
 	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css');
 	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	
-	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquer','https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
 	wp_enqueue_script( 'main',get_template_directory_uri().'/dist/js/main.js');
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
