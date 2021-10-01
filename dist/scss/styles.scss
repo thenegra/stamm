@@ -953,14 +953,17 @@ h4,.subtit-dos{
 		@include flexbox();
 		@include flex-wrap(wrap);
 		input,select,textarea{
-				display: block;
-				width: 100%;
-				border: none;
-				font-family: inherit;
-				padding: inherit;
-				margin: inherit;
-				@include appearance(none);
-			}
+			display: block;
+			width: 100%;
+			border: none;
+			font-family: inherit;
+			padding: inherit;
+			margin: inherit;
+			@include appearance(none);
+			font-size: inherit;
+			padding: .5em;
+			font-size: 1.2rem;
+		}
 		.col{
 			display: block;
 
