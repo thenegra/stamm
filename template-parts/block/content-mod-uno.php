@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo slugify(get_field('titulo'));?>">
 	<div class="main-container mob-full">
 		<div class="columna col-texto">
 			<h3 class="tit-uno"><?php echo get_field('titulo');?></h3>
