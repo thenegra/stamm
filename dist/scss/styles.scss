@@ -952,16 +952,18 @@ h4,.subtit-dos{
 	form{
 		@include flexbox();
 		@include flex-wrap(wrap);
-		.col{
-			display: block;
-			input,select,textarea{
+		input,select,textarea{
 				display: block;
 				width: 100%;
 				border: none;
 				font-family: inherit;
 				padding: inherit;
 				margin: inherit;
+				@include appearance(none);
 			}
+		.col{
+			display: block;
+
 		}
 	}
 }
