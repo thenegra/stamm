@@ -698,7 +698,7 @@ h4,.subtit-dos{
 				padding-right: 3rem;
 				max-width: 25%;
 				@media all and (max-width: 1024px){
-					width: 50%;
+					max-width: 50%;
 				}
 			}
 		}
