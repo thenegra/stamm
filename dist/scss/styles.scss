@@ -377,9 +377,13 @@ h4,.subtit-dos{
 		position: relative;
 		padding-top: 3rem;
 		.slick-dots{
+
 			position: absolute;
 			bottom: 0rem;
 			left: 0;
+			@media all and (max-width: 1024px){
+				position: relative;
+			}
 		}
 	}
 
@@ -417,6 +421,9 @@ h4,.subtit-dos{
 	
 	.slide-contents{
 	@include flexbox();
+	@media all and (max-width: 1024px){
+		display: block;
+	}
 	.texto,header{
 		h3{
 			color: $c_verde;
