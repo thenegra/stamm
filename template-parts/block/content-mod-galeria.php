@@ -4,7 +4,15 @@ $galeria = get_field('galeria');
 ?>
 </div>
 <section class="mod-galeria f-<?php echo get_field('diseno')['fondo']; ?>">
-	<div class="main-container f-negro">
+	<?php if(get_field('titulo')):?>
+	<div class="main-container">
+		
+		<h3 class="tit-uno"><?php echo get_field('titulo');?></h3>
+
+	</div>
+	<?php endif;?>
+	<div class="main-container f-negro  mob-full">
+
 		<div class="galeria">
 		<?php foreach($galeria as $foto):?>
 		<?php echo wp_get_attachment_image($foto['ID'],'foto-hq'); ?>
