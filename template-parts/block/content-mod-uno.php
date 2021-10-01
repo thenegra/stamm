@@ -4,7 +4,6 @@
 		<div class="columna col-texto">
 			<h3 class="tit-uno"><?php echo get_field('titulo');?></h3>
 			<div class="space"></div>
-			<div class="space"></div>
 			<div class="texto">
 				<?php echo get_field('contenido'); ?>
 				<?php 
