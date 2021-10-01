@@ -12,6 +12,9 @@
 			<h3 class="subtit c-verde">Contact us</h3>
 			<span class="mega" style="display: block; max-width: 13em;">Join the <span class="breaker no-desk"></span>next biotech revolution</span>
 		</header>
+		<div class="form">
+			<?php echo do_shortcode('[contact-form-7 id="421" title="contact"]');?>
+		</div>
 	</div>
 </section>
 <footer id="footer" role="contentinfo" class="f-negro"> 
