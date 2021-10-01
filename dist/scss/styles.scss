@@ -984,6 +984,11 @@ h4,.subtit-dos{
 			margin: 1rem 0;
 			margin-right: 2%;
 			position: relative;
+			.wpcf7-form-control-wrap{
+				display: block;
+				position: relative;
+				width: 100%;
+			}
 			.wpcf7-not-valid-tip{
 				position: absolute;
 				bottom: 0;
