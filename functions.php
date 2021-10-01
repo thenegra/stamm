@@ -306,3 +306,47 @@ function slugify($text, string $divider = '-')
 
   return $text;
 }
+
+
+
+
+/* Display functions */
+
+function getAreaEmployees($area){
+	
+			$member_group_query = new WP_Query( array(
+				'post_type' => 'employee',
+				'tax_query' => array(
+					array(
+					'taxonomy' => 'area',
+					'field' => 'slug',
+					'terms' => array( $area->slug ),
+					'operator' => 'IN'
+					)
+				)
+				)
+		);
+				?>
+				<h2 class="tit-uno"><?php echo $area->name; ?></h2>
+				<section class="employee-area">
+				
+				
+				<?php
+				if ( $member_group_query->have_posts() ) : while ( $member_group_query->have_posts() ) : $member_group_query->the_post(); 
+					get_template_part('employee');
+					get_template_part('employee');
+					get_template_part('employee');
+					get_template_part('employee');
+					get_template_part('employee');
+					get_template_part('employee');
+					?>
+				
+
+				<?php endwhile; endif; ?>
+				</section>
+    
+    <?php
+    // Reset things, for good measure
+    $member_group_query = null;
+    wp_reset_postdata(); 
+}
