@@ -984,6 +984,18 @@ h4,.subtit-dos{
 			margin: 1rem 0;
 			margin-right: 2%;
 			position: relative;
+			.request-type{
+				position: relative;
+				&:after{
+					content: "";
+					display: block;
+					position: absolute;
+					right: 1.5rem;
+					top: 50%;
+					border-bottom: 1px solid $c_verde;
+					border-left: 1px solid $c_verde;
+				}
+			}
 			.wpcf7-form-control-wrap{
 				display: block;
 				position: relative;
@@ -1018,6 +1030,9 @@ h4,.subtit-dos{
 			}
 			&.area{
 				width: 64%;
+				@media all and (max-width: 1024px){
+					width: 100%;
+				}
 				textarea{
 					border: 1px solid $c_verde;
 				}
@@ -1025,7 +1040,7 @@ h4,.subtit-dos{
 			@media all and (max-width: 1024px){
 				width: 48%;
 				margin-right: 2%;
-				
+
 			}
 			@media all and (max-width: 768px){
 				width: 100%;
@@ -1042,15 +1057,7 @@ h4,.subtit-dos{
 				@include border-radius(1.2em);
 				padding-left: 1rem;	
 				position: relative;
-				&:after{
-					content: "";
-					display: block;
-					position: absolute;
-					right: 1.5rem;
-					top: 50%;
-					border-bottom: 1px solid $c_verde;
-					border-left: 1px solid $c_verde;
-				}
+
 			}
 		}
 	}
