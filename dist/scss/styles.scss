@@ -955,6 +955,7 @@ h4,.subtit-dos{
 }
 .form{
 	form{
+		padding-top: 4rem;
 		@include flexbox();
 		@include flex-wrap(wrap);
 		input,select,textarea{
