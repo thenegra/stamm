@@ -500,7 +500,7 @@ h4,.subtit-dos{
 			h3,.contenido{
 				max-width: 70%;
 				@media all and (min-width: 1025px){
-				max-width: 50%;
+					max-width: 50%;
 				}
 			}
 		}
@@ -945,6 +945,23 @@ h4,.subtit-dos{
 		@media all and (min-width: 1024px){
 			//min-height: 50vh;
 			width: 50%;	
+		}
+	}
+}
+.form{
+	form{
+		@include flexbox();
+		@include flex-wrap(wrap);
+		.col{
+			display: block;
+			input,select,textarea{
+				display: block;
+				width: 100%;
+				border: none;
+				font-family: inherit;
+				padding: inherit;
+				margin: inherit;
+			}
 		}
 	}
 }
