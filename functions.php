@@ -353,6 +353,7 @@ function getAreaEmployees($area){
 				<?php
 				if ( $member_group_query->have_posts() ) : while ( $member_group_query->have_posts() ) : $member_group_query->the_post(); 
 					get_template_part('employee');
+					get_template_part('employee');get_template_part('employee');get_template_part('employee');get_template_part('employee');get_template_part('employee');get_template_part('employee');
 					?>
 				
 
