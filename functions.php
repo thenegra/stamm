@@ -255,6 +255,24 @@ function my_acf_init() {
 			'icon'				=> 'media-spreadsheet',
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'mod-team-search',
+			'title'				=> __('Content: Team search'),
+			'description'		=> __('Módulo de búsquedas activas'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-galeria',
+			'title'				=> __('Content: Gallery'),
+			'description'		=> __('Galería de imágenes'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
 	}
 }
 
@@ -333,11 +351,6 @@ function getAreaEmployees($area){
 				
 				<?php
 				if ( $member_group_query->have_posts() ) : while ( $member_group_query->have_posts() ) : $member_group_query->the_post(); 
-					get_template_part('employee');
-					get_template_part('employee');
-					get_template_part('employee');
-					get_template_part('employee');
-					get_template_part('employee');
 					get_template_part('employee');
 					?>
 				

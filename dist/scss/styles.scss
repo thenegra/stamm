@@ -255,6 +255,30 @@ h4,.subtit-dos{
 
 /* Bloques  */
 
+/* Bloque team search */
+.mod-team-search{
+	padding: 2rem 0;
+}
+.job{
+	
+	padding: 2rem 0;
+	.contents{
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	h3{
+		margin-bottom: 0;
+		margin-right: .5rem;
+		line-height: .9;
+		
+	}
+	.boton{
+		display: inline-block;
+		vertical-align: bottom;
+		margin: 0;
+		font-size: 1rem;
+	}
+}
 
 /* Bloque employees */
 .mod-employees{
