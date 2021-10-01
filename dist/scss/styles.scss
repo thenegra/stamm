@@ -975,6 +975,9 @@ h4,.subtit-dos{
 			margin-right: 2%;
 			&.area{
 				width: 64%;
+				textarea{
+					border: 1px solid;
+				}
 			}
 			@media all and (max-width: 1024px){
 				width: 48%;
@@ -992,6 +995,8 @@ h4,.subtit-dos{
 			}
 			select{
 				border: 1px solid $c_verde;
+				@include border-radius(1.2em);
+				padding-left: 1rem;	
 			}
 		}
 	}
