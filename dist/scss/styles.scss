@@ -1040,6 +1040,16 @@ h4,.subtit-dos{
 				border: 1px solid $c_verde;
 				@include border-radius(1.2em);
 				padding-left: 1rem;	
+				position: relative;
+				&:after{
+					content: "";
+					display: block;
+					position: absolute;
+					right: 1.5rem;
+					top: 50%;
+					border-bottom: 1px solid $c_verde;
+					border-left: 1px solid $c_verde;
+				}
 			}
 		}
 	}
