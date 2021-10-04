@@ -665,6 +665,15 @@ h4,.subtit-dos{
 	}
 	&.big-hero{
 		min-height: 80vh;
+		.main-container{
+			.contenedor-principal{
+				@media all and (max-width: 1024px){
+				width: 100%;
+				min-height: 40vh;
+				
+			}
+			}
+		}
 		.bajada{
 			margin-top: 1em;
 		}
