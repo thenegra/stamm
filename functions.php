@@ -335,6 +335,7 @@ function getAreaEmployees($area){
 	
 			$member_group_query = new WP_Query( array(
 				'post_type' => 'employee',
+				'posts_per_page' => -1,
 				'tax_query' => array(
 					array(
 					'taxonomy' => 'area',
