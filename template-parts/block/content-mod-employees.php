@@ -11,6 +11,7 @@ $areas = get_terms('area');
 			?>
 		
 		<?php endforeach;?>
+		
 	</div>
 </section>
 <div class="main-container">

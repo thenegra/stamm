@@ -358,6 +358,9 @@ function getAreaEmployees($area){
 				
 
 				<?php endwhile; endif; ?>
+				<div class="space"></div>
+				<div class="space"></div>
+			
 				</section>
     
     <?php
