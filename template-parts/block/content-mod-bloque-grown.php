@@ -12,7 +12,6 @@
 				<h3 class="tit-dos"><?php echo $content['titulo'];?></h3>
 
 				<div class="space"></div>
-				<div class="space"></div>
 				<div class="texto">
 					<?php echo $content['contenido']; ?>
 				</div>
