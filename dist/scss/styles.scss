@@ -346,9 +346,13 @@ h4,.subtit-dos{
 	@media all and (max-width: 768px){
 		max-width: 48%;
 	}
+	.subtit-dos{
+		text-decoration: none;
+		margin-bottom: .25em;
+	}
 	p{
 		font-size: 1rem;
-		margin-top: .5em;
+		
 	}
 }
 
