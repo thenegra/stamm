@@ -484,7 +484,7 @@ h4,.subtit-dos{
 /* Bloque media uno */
 .modulo-uno,.modulo-dos,.modulo-grown{
 	&.featured{
-		background: $c_gris;
+		//background: $c_gris;
 		@media all and (min-width: 1025px){
 
 			padding: 4rem 0;
@@ -590,6 +590,7 @@ h4,.subtit-dos{
 						height: 100%;
 						padding-bottom: 0;
 					}
+
 					video{
 						display: block;
 						position: absolute;
@@ -608,6 +609,11 @@ h4,.subtit-dos{
 					width: 100.5%;
 					height: 100%;
 					object-fit: cover;
+					@media all and (max-width: 1024px){
+						width: 140%;
+						max-width: 140%;
+						height: auto;	
+					}
 				}
 			}
 		}
