@@ -11,7 +11,8 @@ $areas = get_terms('area');
 			?>
 		
 		<?php endforeach;?>
-		
+		<div class="space"></div>
+				<div class="space"></div>
 	</div>
 </section>
 <div class="main-container">
