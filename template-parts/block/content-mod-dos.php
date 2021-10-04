@@ -6,7 +6,6 @@
 			<h3 class="tit-uno"><?php echo $content['titulo'];?></h3>
 
 			<div class="space"></div>
-			<div class="space"></div>
 			<div class="texto">
 				<h4 class="subtit"><?php echo $content['subtitulo']; ?></h4>
 				
