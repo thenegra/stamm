@@ -670,7 +670,9 @@ h4,.subtit-dos{
 				@media all and (max-width: 1024px){
 				width: 100%;
 				min-height: 40vh;
-				
+				@include flexbox();
+				@include flex-direction(column);
+				@include justify-content(center);
 			}
 			}
 		}
