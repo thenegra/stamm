@@ -5,7 +5,7 @@
 	endif;
 	?>
 	<div class="inner-padding f-gris">
-		<h3 class="subtit-uno"><?php the_title(); ?></h3>
-		<p class="subtit-dos"><?php echo get_field('cargo',get_the_ID()); ?></p>
+		<h3 class="subtit-dos"><?php the_title(); ?></h3>
+		<p class=""><?php echo get_field('cargo',get_the_ID()); ?></p>
 	</div>
 </article>
