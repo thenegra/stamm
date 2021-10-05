@@ -1,7 +1,7 @@
 <article id="employee-<?php the_ID(); ?>" <?php post_class('employee'); ?>>
 	<div class="foto">
 	<?php if ( has_post_thumbnail() ) : 
-		the_post_thumbnail('feed-size',array('title'=>get_the_title()));
+		the_post_thumbnail('feed-size',array('alt'=>get_the_title(),'title'=>get_the_title()));
 	else:
 	endif;
 	?>
