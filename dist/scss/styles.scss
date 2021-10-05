@@ -342,6 +342,7 @@ h4,.subtit-dos{
 	margin-bottom: 2%;
 	@include flexbox();
 	@include align-items(stretch);
+	@include justify-content(flex-end);
 	@include flex-direction(column);
 	@media all and (max-width: 1024px){
 		max-width: 31%;
