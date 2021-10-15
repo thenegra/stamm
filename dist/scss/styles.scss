@@ -16,14 +16,21 @@ html{
 	font-size: 15px;
 	background: #eee;
 	font-weight: 300;
+	body{
+		font-size: 15px;	
+	}
 	@media all and (max-width: 468px){
 		font-size: 13px;
+		body{
+			font-size: 13px;	
+		}
 	}
 
 	padding-top: 4rem;
 	@media all and (max-width: 1024px){
 		padding-top: 3.5rem;
 	}
+
 }
 img{
 	display: block;
