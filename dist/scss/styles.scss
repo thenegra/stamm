@@ -931,6 +931,18 @@ h4,.subtit-dos{
 				}
 			}
 		}
+		.addresses{
+			.address{
+				margin-bottom: 2rem;
+			}
+			@media all and (min-width: 1025px){
+				@include flexbox();
+				.address{
+					margin-bottom: 0;
+					margin-right: 2rem;
+				}
+			}
+		}
 	}
 }
 
