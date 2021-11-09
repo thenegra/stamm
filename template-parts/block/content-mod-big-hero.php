@@ -32,12 +32,13 @@ $rand = rand(1000,9999);
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var _el = $('#el-<?php echo $rand?>');
-			checkScroll(_el);
+			_checkScroll(_el);
 			$(document).scroll(function(){
-				checkScroll(_el);
+				_checkScroll(_el);
 			})
 		});
-		function checkScroll(_el){
+		function _checkScroll(_el){
+			console.log(_el);
 			var _per = ($(document).scrollTop()-_el.position().top)/(_el.outerHeight());
 			if(_per<0) _per = 0;
 			var _max = $('.mascara-container').outerHeight()*.55;
