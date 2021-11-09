@@ -1,8 +1,10 @@
 <?php
 $fotos = get_field('imagenes_feature');
+$rand = rand(1000,9999);
+
 ?>
 </div>
-<section class="hero big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
+<section id="el-<?php echo $rand; ?>" class="hero big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
 	<div class="test-imagen"></div>
 	
 	<div class="mascara-container">
@@ -27,6 +29,20 @@ $fotos = get_field('imagenes_feature');
 		</div>
 		
 	</div>
-	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var _el = $('#el-<?php echo $rand?>');
+			checkScroll(_el);
+			$(document).scroll(function(){
+				checkScroll(_el);
+			})
+		});
+		function checkScroll(_el){
+			var _per = ($(document).scrollTop()-_el.position().top)/(_el.outerHeight());
+			var _max = $('.mascara-container').outerHeight()*.55;
+			var _val = -_max/2+_per*_max;
+			_el.find('.imagen-mask').css('margin-top',_val);
+		}
+	</script>
 </section>
 <div class="main-container">
