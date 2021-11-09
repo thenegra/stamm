@@ -45,7 +45,7 @@ $rand = rand(1000,9999);
 			var _val = -_max+_per*_max;
 			//_el.find('.imagen-mask').css('margin-top',_val);
 			gsap.to(_el.find('.imagen-mask'), {top:_val ,ease:"power3.out",duration:1});
-			var _move = _el.outerHeight()*(.5-.3*_per);
+			var _move = _el.outerHeight()*(.5+.15*_per);
 			gsap.to(_el.find('.mascara-container'), {top:_move ,ease:"power3.out",duration:.7});
 		}
 	</script>
