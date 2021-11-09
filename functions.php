@@ -34,6 +34,7 @@ wp_enqueue_style('Font_Awesome');
 	wp_enqueue_script( 'jquer','https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
 	wp_enqueue_script( 'main',get_template_directory_uri().'/dist/js/main.js');
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
+	wp_enqueue_script('gs','https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js');
 }
 add_action( 'wp_footer', 'blankslate_footer' );
 function blankslate_footer() {
