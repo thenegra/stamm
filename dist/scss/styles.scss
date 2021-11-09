@@ -717,12 +717,12 @@ h4,.subtit-dos{
 		.mascara-container{
 			display: block;
 			position: absolute;
-			width: 70vh;
+			width: 50vh;
 			height: 0;
 			left: 50%;
 			top: 50%;
 			@include transform(translate(-50%,-50%));
-			padding-bottom: 70vh;
+			padding-bottom: 50vh;
 			@media all and (orientation:portrait){
 				width: 70vw;
 				padding-bottom: 70vw;
