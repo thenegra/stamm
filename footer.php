@@ -39,6 +39,12 @@
 		</div>
 		<div class="logo">
 			<h1><a href="/"><img src="<?php echo get_template_directory_uri()?>/dist/img/st_logo_green.svg" alt="STÄMM"></a></h1>
+			<ul class="redes">
+				<li><a href="https://www.linkedin.com/company/stammbiotech/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+				<li><a href="https://twitter.com/stammbio" target="_blank"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://www.instagram.com/stamm.bio/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+				<li><a href="https://m.facebook.com/stammbiotech/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+			</ul>
 		</div>
 	</div>
 </footer>

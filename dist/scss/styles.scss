@@ -702,7 +702,52 @@ h4,.subtit-dos{
 	}
 	&.big-hero{
 		min-height: 80vh;
+		position: relative;
+		.test-imagen{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			//background: #f00;
+			z-index: 1;
+
+		}
+		
+		.mascara-container{
+			display: block;
+			position: absolute;
+			width: 70vh;
+			height: 0;
+			left: 50%;
+			top: 50%;
+			@include transform(translate(-50%,-50%));
+			padding-bottom: 70vh;
+			//background: #00f;
+			z-index: 2;
+			clip-path: url(#mascara);
+			.imagen-mask{
+			display: block;
+				position: absolute;
+				width: 100%;
+				height: 120%;
+				left: 0;
+				top: 0;
+				@include justify-content(center);
+				
+				background-position: center center;
+				background-size: cover;
+				
+			}
+		
+
+		}
+		svg{
+			//display: none;
+		}
 		.main-container{
+			position: relative;
+			z-index: 5;
 			.contenedor-principal{
 				@media all and (max-width: 1024px){
 				width: 100%;
@@ -924,17 +969,31 @@ h4,.subtit-dos{
 	.main-container{
 		@include flexbox();
 		@include justify-content(space-between);
-		@include align-items(flex-end);
+		//@include align-items(flex-end);
 		@media all and (max-width: 1024px){
 			@include flex-direction(column);
 			@include align-items(flex-start);
 			min-height: 30vh;
 		}
 		.logo{
+			@include flexbox();
+			@include justify-content(space-between);
+			@include flex-direction(column);
 			h1{
 				img{
 					display: block;
 					height:1.8rem;
+				}
+			}
+			.redes{
+				@include flexbox();
+				@include justify-content(space-between);
+				a{
+					color: inherit;
+					font-size: 1.2em;
+					&:hover{
+						color: $c_verde
+					}
 				}
 			}
 		}
