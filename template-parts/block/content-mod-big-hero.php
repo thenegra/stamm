@@ -40,7 +40,7 @@ $rand = rand(1000,9999);
 		function checkScroll(_el){
 			var _per = ($(document).scrollTop()-_el.position().top)/(_el.outerHeight());
 			var _max = $('.mascara-container').outerHeight()*.55;
-			var _val = -_max/2+_per*_max;
+			var _val = -_max+_per*_max;
 			_el.find('.imagen-mask').css('margin-top',_val);
 		}
 	</script>
