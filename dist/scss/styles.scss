@@ -13,7 +13,7 @@ $c_verde: #00d89d;
 html{
 	font-family: 'Archivo',Helvetica,Arial,sans-serif;
 	color: $c_negro;
-	font-size: 15px;
+	font-size: 16px;
 	background: #eee;
 	font-weight: 300;
 	body{
@@ -734,13 +734,19 @@ h4,.subtit-dos{
 			//background: #00f;
 			z-index: 2;
 			clip-path: url(#mascara);
+			@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  .rowcontainer {
+    clip: auto;
+    -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%)
+  }
+}
 			.imagen-mask{
 			display: block;
 				position: absolute;
 				width: 100%;
 				height: 160%;
 				left: 0;
-				top: 0;
+				top: -50%;
 				@include justify-content(center);
 				
 				background-position: center center;
