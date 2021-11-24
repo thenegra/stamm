@@ -44,7 +44,7 @@ $rand = rand(1000,9999);
 			var _max = $('.mascara-container').outerHeight()*.55;
 			var _val = -_max+_per*_max;
 			//_el.find('.imagen-mask').css('margin-top',_val);
-			gsap.to(_el.find('.imagen-mask'), {top:_val ,ease:"power3.out",duration:1});
+			gsap.to(_el.find('.imagen-mask'), {backgroundPosition:"50% "+(60+_per*40)+"%" ,ease:"power3.out",duration:1});
 			var _move = _el.outerHeight()*(.5+.15*_per);
 			gsap.to(_el.find('.mascara-container'), {top:_move ,ease:"power3.out",duration:.7});
 		}
