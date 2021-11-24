@@ -32,10 +32,16 @@ html{
 	}
 
 }
+svg{
+	width: auto;
+	height: auto;
+}
 img{
 	display: block;
-	max-width: 100%;
+	width: auto;
 	height: auto;
+	max-width: 100%;
+	
 }
 *{
 	box-sizing: border-box;
@@ -997,7 +1003,8 @@ h4,.subtit-dos{
 			h1{
 				img{
 					display: block;
-					width: 9rem;
+					width: auto;
+					height: 2rem;
 					margin-bottom: 2rem;
 				}
 			}

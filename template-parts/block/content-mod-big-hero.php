@@ -29,9 +29,21 @@ $rand = rand(1000,9999);
 		</div>
 		
 	</div>
+	<style type="text/css">
+		#el-<?php echo $rand?>.safari{
+			background-image: url('<?php echo get_field('imagen_safe')['url'];?>')!important;
+		}
+		#el-<?php echo $rand?>.safari .mascara-container{
+			display: none;
+		}
+	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
 			var _el = $('#el-<?php echo $rand?>');
+			if(navigator.vendor ==  "Apple Computer, Inc."){
+				_el.addClass('safari');	
+			}
 			_checkScroll(_el);
 			$(document).scroll(function(){
 				_checkScroll(_el);
