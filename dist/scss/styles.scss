@@ -734,6 +734,7 @@ h4,.subtit-dos{
 			//background: #00f;
 			z-index: 2;
 			clip-path: url(#mascara);
+			-webkit-clip-path: url(#mascara);
 			@media screen and (-webkit-min-device-pixel-ratio:0) { 
   .rowcontainer {
     clip: auto;
@@ -996,7 +997,8 @@ h4,.subtit-dos{
 			h1{
 				img{
 					display: block;
-					height:1.8rem;
+					width: 9rem;
+					margin-bottom: 2rem;
 				}
 			}
 			.redes{
