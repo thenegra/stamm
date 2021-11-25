@@ -735,7 +735,7 @@ h4,.subtit-dos{
 			
 			@media all and (orientation:portrait){
 				width: 70vw;
-				padding-bottom: 70vw;
+				height: 70vw;
 			}
 			//background: #00f;
 			z-index: 2;
@@ -752,6 +752,10 @@ h4,.subtit-dos{
 				//position: absolute;
 				width: 50vh;
 				height: 50vh;
+				@media all and (orientation:portrait){
+				width: 70vw;
+				height: 70vw;
+			}
 				left: 0;
 				//top: -50%;
 				@include justify-content(center);
