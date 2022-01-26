@@ -86,6 +86,22 @@ width: 5em;
 		font-size: 4rem;
 	}
 }
+.sub-mega{
+	font-size: 5rem;
+	font-family: 'Chivo',Helvetica,Arial,sans-serif;
+	font-weight: 300;
+	letter-spacing: -.04em;
+	p{
+		font-size: inherit;
+		line-height: inherit;
+	}
+	@media all and (max-width: 1024px){
+		font-size: 4rem;
+	}
+	@media all and (max-width: 500px){
+		font-size: 3rem;
+	}
+}
 .destacado{
 	font-size: 3.8rem;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
@@ -1229,6 +1245,109 @@ h4,.subtit-dos{
 				padding-left: 1rem;	
 				position: relative;
 
+			}
+		}
+	}
+}
+
+
+/* Blog */
+.post-min{
+	@include flexbox();
+	margin-bottom: 2rem;
+	.post-min-header{
+		width: 30%;
+		margin-right: 5%;
+		margin-top: .6em;
+		.image{
+			display: block;
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%;
+			background: $c_verde;
+		}
+	}
+	.post-min-main{
+		width: 65%;
+	}
+}
+.main-blog{
+	.main-container{
+		@include flexbox();
+		@include align-items(flex-start);
+		@include justify-content(space-between);
+		@media all and (max-width: 768px){
+			@include flex-direction(column);
+
+		}
+		.blog-nav{
+			h3{
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 1rem;
+				margin-bottom: 2rem;
+			}
+			width: 100%;
+			margin-top: 2rem;
+			background: $c_verde;
+				padding: 1rem 2rem;
+				
+				
+				ul{
+					a{
+							
+							display: inline-block;
+							color: inherit;
+							
+						}
+					.current-menu-item{
+							
+							>a{
+								text-decoration: none!important;
+							}
+						}
+					&.sub-menu{
+						color: $c_negro;
+						.current-menu-item{
+							color: $c_blanco;
+							
+						}
+						
+						li a{
+							position: relative;
+							padding-left: .7em;
+							text-decoration: underline;
+							&:before{
+								content: "";
+								width: .3em;
+								height: .3em;
+								border: 1px solid;
+								border-bottom: none;
+								border-right: none;
+								position: absolute;
+								top: 50%;
+								left: 0;
+								@include transform(translate(-50%,-50%) rotate(135deg));
+							}
+						}
+					}
+					
+					li{
+						font-size: 1.5rem;
+						margin: .5em 0;
+						
+					}
+				}
+		}
+		@media all and (min-width: 769px){
+			.post-container{
+				width: 64%;
+				margin-right: 2%;
+			}
+			.blog-nav{
+				width: 31%;
+				
+				margin-top: -6rem;
 			}
 		}
 	}

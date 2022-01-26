@@ -1,9 +1,5 @@
 <?php get_header(); ?>
-<main id="content" role="main">
-	<h1>Hola!</h1>
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<?php get_template_part( 'entry' ); ?>
-<?php //comments_template(); ?>
-<?php endwhile; endif; ?>
-</main>
+
+<?php get_template_part('blog'); ?>
+
 <?php get_footer(); ?>

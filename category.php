@@ -1,4 +1,10 @@
 <?php get_header(); ?>
+
+<?php get_template_part('blog'); ?>
+
+<?php get_footer(); ?>
+
+<?php /* get_header(); ?>
 <main id="content" role="main">
 <header class="header">
 <h1 class="entry-title" itemprop="name"><?php single_term_title(); ?></h1>
@@ -9,4 +15,4 @@
 <?php endwhile; endif; ?>
 <?php get_template_part( 'nav', 'below' ); ?>
 </main>
-<?php get_footer(); ?>
+<?php get_footer(); */ ?>

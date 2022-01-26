@@ -415,3 +415,44 @@ function tsm_convert_id_to_term_in_query($query) {
 		$q_vars[$taxonomy] = $term->slug;
 	}
 }
+
+add_filter('the_content', 'add_text_input_classes', 20);
+function add_text_input_classes($content)
+{
+	$doc = new DOMDocument(); //Instantiate DOMDocument
+	$doc->loadHTML($content); //Load the Post/Page Content as HTML
+	$p = $doc->getElementsByTagName('p');
+	$h1 = $doc->getElementsByTagName('h1'); //Find all Inputs
+	$h2 = $doc->getElementsByTagName('h2');
+	$h3 = $doc->getElementsByTagName('h3');
+	foreach($p as $par)
+	{
+		append_attr_to_element($par, 'class', 'texto');
+	}
+	foreach($h1 as $tit)
+	{
+		append_attr_to_element($tit, 'class', 'tit-dos');
+	}
+	foreach($h2 as $tit)
+	{
+		append_attr_to_element($tit, 'class', 'tit-dos');
+	}
+	foreach($h1 as $tit)
+	{
+		append_attr_to_element($tit, 'class', 'tit-tres');
+	}
+	return $doc->saveHTML();
+}
+function append_attr_to_element(&$element, $attr, $value)
+{
+    if($element->hasAttribute($attr)) //If the element has the specified attribute
+    {
+        $attrs = explode(' ', $element->getAttribute($attr)); //Explode existing values
+        if(!in_array($value, $attrs))
+            $attrs[] = $value; //Append the new value
+        $attrs = array_map('trim', array_filter($attrs)); //Clean existing values
+        $element->setAttribute($attr, implode(' ', $attrs)); //Set cleaned attribute
+    }
+    else
+        $element->setAttribute($attr, $value); //Set attribute
+}
