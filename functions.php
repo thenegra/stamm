@@ -419,6 +419,7 @@ function tsm_convert_id_to_term_in_query($query) {
 add_filter('the_content', 'add_text_input_classes', 20);
 function add_text_input_classes($content)
 {
+	/* if(get_post_type() == "post"){
 	$doc = new DOMDocument(); //Instantiate DOMDocument
 	$doc->loadHTML($content); //Load the Post/Page Content as HTML
 	$p = $doc->getElementsByTagName('p');
@@ -437,11 +438,13 @@ function add_text_input_classes($content)
 	{
 		append_attr_to_element($tit, 'class', 'tit-dos');
 	}
-	foreach($h1 as $tit)
+	foreach($h3 as $tit)
 	{
 		append_attr_to_element($tit, 'class', 'tit-tres');
 	}
 	return $doc->saveHTML();
+	}	*/
+	return $content;
 }
 function append_attr_to_element(&$element, $attr, $value)
 {

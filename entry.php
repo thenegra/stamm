@@ -1,13 +1,26 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-min'); ?>>
 <header class="post-min-header">
-	<div class="image"></div>
+	<div class="image" style="background-image: url('<?php echo get_the_post_thumbnail_url(false,'full'); ?>')">
+		<?php $tags = get_the_tags();
+		if($tags):?>
+		<span class="mini-text">
+			<ul>
+				<?php foreach($tags as $tag):?>
+				<li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
+				<?php endforeach;?>
+			</ul>
+		</span>
+		<?php endif;?>
+	</div>
 </header>
 <main class="post-min-main">
-	<h3 class="tit-dos"><?php the_title(); ?></h3>
-	<div class="texto">
-		<?php the_excerpt(); ?>
-		<a href="<?php the_permalink(); ?>" class="boton outline">Read more</a>
+	<div>
+		<h3 class="tit-tres"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+		<div class="texto small">
+			<?php the_excerpt(); ?>
+		</div>	
 	</div>
+	<a href="<?php the_permalink(); ?>" class="boton outline">Read more</a>
 </main>
 <?php /* 
 <?php if ( is_singular() ) { echo '<h1 class="entry-title" itemprop="headline">'; } else { echo '<h2 class="entry-title">'; } ?>
