@@ -1,26 +1,37 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-min'); ?>>
 <header class="post-min-header">
 	<div class="image" style="background-image: url('<?php echo get_the_post_thumbnail_url(false,'full'); ?>')">
-		<?php $tags = get_the_tags();
-		if($tags):?>
-		<span class="mini-text">
-			<ul>
-				<?php foreach($tags as $tag):?>
-				<li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
-				<?php endforeach;?>
-			</ul>
-		</span>
-		<?php endif;?>
+		
 	</div>
 </header>
 <main class="post-min-main">
 	<div>
 		<h3 class="tit-tres"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+		<?php $tags = get_the_category();
+		if($tags):?>
+		<nav class="categorias">
+			<ul>
+				<?php foreach($tags as $tag):?>
+				<li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
+				<?php endforeach;?>
+			</ul>
+		</nav>
+		<?php endif;?>
 		<div class="texto small">
 			<?php the_excerpt(); ?>
+			<?php $tags = get_the_tags();
+		if($tags):?>
+		<nav class="tags">
+
+			<ul>
+				<span>Tags:</span>
+				<?php foreach($tags as $tag):?><li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li><?php endforeach;?>
+			</ul>
+		</nav>
+		<?php endif;?>
 		</div>	
 	</div>
-	<a href="<?php the_permalink(); ?>" class="boton outline">Read more</a>
+	<a href="<?php the_permalink(); ?>" class="boton ">Read more</a>
 </main>
 <?php /* 
 <?php if ( is_singular() ) { echo '<h1 class="entry-title" itemprop="headline">'; } else { echo '<h2 class="entry-title">'; } ?>
