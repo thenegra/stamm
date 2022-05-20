@@ -968,6 +968,15 @@ h4,.subtit-dos{
 						overflow: hidden;
 						max-height: 0;
 						@include animar();
+						display: block;
+						a{
+							display: block;
+							&:hover{
+								background: $c_verde;
+								color: $c_negro;
+
+							}
+						}
 
 
 					}
