@@ -959,6 +959,16 @@ h4,.subtit-dos{
 				@include flexbox();
 				li{
 					position: relative;
+					&.menu-item-has-children{
+						>a{
+							&:after{
+								margin-left: .5em;
+								position: relative;
+								top: -.05em;
+								content: "▾"
+							}
+						}
+					}
 					.sub-menu{
 						position: absolute;
 						top: calc(100% + 0.75rem);
