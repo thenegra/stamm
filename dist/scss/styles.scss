@@ -992,7 +992,13 @@ h4,.subtit-dos{
 				li{
 					position: relative;
 					&.menu-item-has-children{
-
+						&:hover{
+							@media all and (max-width: 1080px){
+								>a{
+									border-bottom: 1px solid $c_gris;
+								}
+							}
+						}
 						>a{
 							padding-right: 1.8em;
 						}
@@ -1036,11 +1042,7 @@ h4,.subtit-dos{
 
 					}
 					&:hover{
-						@media all and (max-width: 1080px){
-						>a{
-							border-bottom: 1px solid $c_gris;
-						}
-					}
+
 						.sub-menu{
 							max-height: 12rem;
 							@include animar(all,1s);
