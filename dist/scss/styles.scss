@@ -571,12 +571,13 @@ h4,.subtit-dos{
 			@include justify-content(space-between);
 			@include align-items(flex-start);
 			.col{
-				width: 35%;
+				width: 20%;
 				&.text{
-					width: 65%;
+					width: 80%;
 				}
 			}
 			.boton{
+				margin-top: 0;
 				width: 100%;
 				text-align: center;
 			}
