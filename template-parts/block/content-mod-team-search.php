@@ -16,6 +16,8 @@ $busquedas = get_field('positions');
 			</div>
 			<a href="<?php echo $busqueda['url']; ?>" class="boton" target="_blank">Apply now</a>
 		</article>
+		
+		<?php endforeach;?>
 		<?php
 
 	$custom_terms = get_terms('area');
@@ -53,7 +55,6 @@ foreach($custom_terms as $custom_term) {
      }
 }
 ?>
-		<?php endforeach;?>
 	</div>
 </section>
 <div class="main-container">
