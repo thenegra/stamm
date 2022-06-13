@@ -21,7 +21,7 @@ $busquedas = get_field('positions');
 		<?php
 
 	$custom_terms = get_terms('area');
-
+/*
 foreach($custom_terms as $custom_term) {
     wp_reset_query();
     $args = array('post_type' => 'busqueda',
@@ -37,6 +37,7 @@ foreach($custom_terms as $custom_term) {
      $loop = new WP_Query($args);
      if($loop->have_posts()) {
         ?>
+        <div class="space"></div>
         <h2 class="c-verde subtit"><?php echo $custom_term->name; ?></h2>
         <?php
 
@@ -54,6 +55,7 @@ foreach($custom_terms as $custom_term) {
         endwhile;
      }
 }
+*/
 ?>
 	</div>
 </section>
