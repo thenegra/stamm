@@ -11,7 +11,9 @@ $(document).ready(function(){
 		$('.nav .menu ul').slideToggle();
 	});
 	$('#header .menu-main-menu-container a').click(function(){
-		$('.nav .menu ul').slideUp();
+		if($(window).width()<=1024){
+			$('.nav .menu ul').slideUp();
+		}
 	});
 });
 function checkScroll(){

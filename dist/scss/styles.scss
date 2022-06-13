@@ -566,7 +566,7 @@ h4,.subtit-dos{
 		.subtit-dos{
 			text-decoration: none;
 		}
-		@media all and (min-width: 1081px){
+		@media all and (min-width: 1025px){
 			@include flexbox();
 			@include justify-content(space-between);
 			@include align-items(flex-start);
@@ -993,7 +993,7 @@ h4,.subtit-dos{
 					position: relative;
 					&.menu-item-has-children{
 						&:hover{
-							@media all and (max-width: 1080px){
+							@media all and (max-width: 1024px){
 								>a{
 									border-bottom: 1px solid $c_gris;
 								}
@@ -1016,7 +1016,7 @@ h4,.subtit-dos{
 					.sub-menu{
 						position: absolute;
 						top: calc(100% + 0.75rem);
-						@media all and (max-width: 1080px){
+						@media all and (max-width: 1024px){
 							top: 100%;
 						}
 						left: auto;
