@@ -570,8 +570,11 @@ h4,.subtit-dos{
 			@include flexbox();
 			@include justify-content(space-between);
 			@include align-items(flex-start);
-			.col.text{
-				width: 65%;
+			.col{
+				width: 35%;
+				&.text{
+					width: 65%;
+				}
 			}
 			.boton{
 				width: 100%;
