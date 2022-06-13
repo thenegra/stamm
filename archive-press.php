@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 <main id="content" role="main">
 <header class="header">
-<h1 class="entry-title" itemprop="name">Press</h1>
+<!--h1 class="entry-title" itemprop="name"><?php the_archive_title(); ?></h1>
 <div class="archive-meta" itemprop="description"><?php if ( '' != the_archive_description() ) { echo esc_html( the_archive_description() ); } ?></div>
-</header>
+</header-->
 <?php /* if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php get_template_part( 'entry' ); ?>
 <?php endwhile; endif; ?>
@@ -17,7 +17,7 @@
 		<div class="space"></div>
 		<div class="space"></div>
 		
-		<h2 class="sub-mega"><?php the_archive_title(); ?></h2>
+		<h2 class="sub-mega">Press</h2>
 		<div class="archive-meta" itemprop="description"><?php if ( '' != the_archive_description() ) { echo esc_html( the_archive_description() ); } ?></div>
 		<div class="space"></div>
 		<div class="space"></div>
@@ -34,10 +34,10 @@
 	<?php //comments_template(); ?>
 	<?php endwhile; endif; ?>
 		</div>
-		<header class="blog-nav">
+		<!--header class="blog-nav">
 			<h3 >Categories</h3>
 			<?php wp_nav_menu('Blog menu'); ?>
-		</header>
+		</header-->
 	</div>
 	<div class="space"></div>
 	<div class="space"></div>
