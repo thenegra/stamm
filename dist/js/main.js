@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$('.nav .hamb').click(function(){
 		$('.nav .menu ul').slideToggle();
 	});
-	$('#header .nav a').click(function(){
+	$('#header .menu-main-menu-container a').click(function(){
 		$('.nav .menu ul').slideUp();
 	});
 });
