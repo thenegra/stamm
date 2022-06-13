@@ -556,7 +556,7 @@ h4,.subtit-dos{
 }
 
 /* Bloque media uno */
-.modulo-uno,.modulo-dos,.modulo-grown{
+.modulo-uno,.modulo-dos,.modulo-grown,.modulo-adjunto{
 	&.featured{
 		background: $c_gris;
 		@media all and (min-width: 1025px){
@@ -594,7 +594,7 @@ h4,.subtit-dos{
 		.contenidos{
 			border: 1px solid $c_verde;
 			margin-top: 2rem;
-			.columna{
+			 a{
 				@media all and (min-width: 1025px){
 				border-right: 1px solid $c_verde;
 				&:last-child{

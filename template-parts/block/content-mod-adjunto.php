@@ -7,8 +7,7 @@
 			if(get_field('bajada')):?><p class="sbutit"><?php echo get_field('bajada');?></p><?php endif; ?>
 		</div>
 		<div class="columna inner-padding big-padding boton">
-			<?php var_dump(get_field('boton')); ?>
-			<a href="" class="boton" target="_blank"></a>
+			<a href="<?php echo get_field('boton')['archivo']; ?>" class="boton" target="_blank"><?php echo get_field('boton')['texto']; ?></a>
 		</div>
 
 	</div>
