@@ -6,8 +6,8 @@
 			<?php //var_dump(get_field('bajada'));
 			if(get_field('bajada')):?><p class="subtit"><?php echo get_field('bajada');?></p><?php endif; ?>
 		</div>
-		<div class="col inner-padding big-padding">
-			<a href="<?php echo get_field('boton')['archivo']; ?>" class="boton" target="_blank"><?php echo get_field('boton')['texto']; ?></a>
+		<div class="col">
+			<a href="<?php echo get_field('boton')['archivo']; ?>" class="boton" target="_blank"><i class="fa fa-download"></i> <?php echo get_field('boton')['texto']; ?></a>
 		</div>
 
 	</div>
