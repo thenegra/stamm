@@ -1622,3 +1622,12 @@ h4,.subtit-dos{
 		}
 	}
 }
+::-moz-selection { /* Code for Firefox */
+  color: $c_negro;
+  background: $c_verde;
+}
+
+::selection {
+  color: $c_negro;
+  background: $c_verde;
+}
