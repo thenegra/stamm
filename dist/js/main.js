@@ -10,6 +10,9 @@ $(document).ready(function(){
 	$('.nav .hamb').click(function(){
 		$('.nav .menu ul').slideToggle();
 	});
+	$('#header .nav a').click(function(){
+		$('.nav .menu ul').slideUp();
+	});
 });
 function checkScroll(){
 	if($(window).scrollTop()>100){
