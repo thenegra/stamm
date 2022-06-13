@@ -20,3 +20,8 @@ $busquedas = get_field('positions');
 	</div>
 </section>
 <div class="main-container">
+	<?php
+
+	$tax = get_object_taxonomies('busqueda');
+	var_dump($tax);
+?>
