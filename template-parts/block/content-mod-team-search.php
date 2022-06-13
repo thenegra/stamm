@@ -16,11 +16,7 @@ $busquedas = get_field('positions');
 			</div>
 			<a href="<?php echo $busqueda['url']; ?>" class="boton" target="_blank">Apply now</a>
 		</article>
-		<?php endforeach;?>
-	</div>
-</section>
-<div class="main-container">
-	<?php
+		<?php
 
 	$custom_terms = get_terms('area');
 
@@ -38,11 +34,27 @@ foreach($custom_terms as $custom_term) {
 
      $loop = new WP_Query($args);
      if($loop->have_posts()) {
-        echo '<h2>'.$custom_term->name.'</h2>';
+        ?>
+        <h2 class="c-verde subtit"><?php echo $custom_term->name; ?></h2>
+        <?php
 
         while($loop->have_posts()) : $loop->the_post();
-            echo '<a href="'.get_permalink().'">'.get_the_title().'</a><br>';
+        	?>
+        	<article class="job">
+			<div class="contents">
+				<h3 class="tit-uno"><?php echo get_the_title(); ?></h3>
+				<!--?php if($busqueda['bajada']):?><h4><?php echo $busqueda['bajada']; ?></h4--><!--?php endif; ?-->
+			</div>
+			<a href="<?php echo get_field('url',get_the_ID()); ?>" class="boton" target="_blank">Apply now</a>
+		</article>
+        	<?php
+            //echo '<a href="'.get_permalink().'">'..'</a><br>';
         endwhile;
      }
 }
 ?>
+		<?php endforeach;?>
+	</div>
+</section>
+<div class="main-container">
+	
