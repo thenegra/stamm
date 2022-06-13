@@ -5,6 +5,7 @@
 <div class="main-container">
 
 <?php the_content(); ?>
+
 </div>
 </article>
 
