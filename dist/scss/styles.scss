@@ -562,11 +562,14 @@ h4,.subtit-dos{
 		position: relative;
 		padding: 2rem 0;
 		border-top: 1px solid;
+		@include flexbox();
+		@include justify-content(space-between);
+		@include align-items(flex-start);
 		.col{
 			width: 48%;
 		}
-		.subtit{
-			margin-top: 1rem;
+		h2{
+			margin-bottom: 1rem;
 		}
 	}
 
