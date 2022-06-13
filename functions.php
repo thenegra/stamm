@@ -274,6 +274,15 @@ function my_acf_init() {
 			'icon'				=> 'media-spreadsheet',
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
+		acf_register_block(array(
+			'name'				=> 'mod-adjunto',
+			'title'				=> __('Content: Adjunto'),
+			'description'		=> __('Elemento adjunto (White paper, etc)'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
 	}
 }
 
