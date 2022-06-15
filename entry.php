@@ -31,15 +31,15 @@
 		<?php endif;?>
 		</div>	
 	</div>
-	<a href="<?php the_permalink(); ?>" class="boton " <?php if(isexternal(get_the_permalink())): ?> target="_blank" <?php endif;?>>Read more</a>
+	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> target="_blank" <?php // endif;?>>Read more</a>
 </main>
 <?php
-function isexternal($url) {
+/* function isexternal($url) {
   $components = parse_url($url);
   if ( empty($components['host']) ) return false;  // we will treat url like '/relative.php' as relative
   if ( strcasecmp($components['host'], 'example.com') === 0 ) return false; // url host looks exactly like the local host
   return strrpos(strtolower($components['host']), '.example.com') !== strlen($components['host']) - strlen('.example.com'); // check if the url host is a subdomain
-}
+} */
 
  /* 
 <?php if ( is_singular() ) { echo '<h1 class="entry-title" itemprop="headline">'; } else { echo '<h2 class="entry-title">'; } ?>
