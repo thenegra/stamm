@@ -6,7 +6,7 @@
 </header>
 <main class="post-min-main">
 	<div>
-		<h3 class="tit-tres"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+		<h3 class="tit-tres">v1 <a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
 		<?php $tags = get_the_category();
 		if($tags):?>
 		<nav class="categorias">
@@ -31,7 +31,7 @@
 		<?php endif;?>
 		</div>	
 	</div>
-	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> target="_blank" <?php // endif;?>>Read more</a>
+	<a href="<?php the_permalink(); ?>" class="boton " <?php if(isexternal(get_the_permalink())): ?> target="_blank" <?php endif;?>>Read more</a>
 </main>
 <?php
  function isexternal($url) {
