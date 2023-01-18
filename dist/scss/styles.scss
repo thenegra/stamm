@@ -1474,6 +1474,7 @@ h4,.subtit-dos{
 			margin-right: 0;
 		}
 	}
+
 	.post-min-header{
 		width: 48%;
 
@@ -1590,6 +1591,17 @@ h4,.subtit-dos{
 			&:hover{
 				color: $c_verde;
 			}
+		}
+	}
+	@media all and (max-width: 480px){
+		display: block;
+		.post-min-header{
+			width: 100%;
+			margin: 0!important;
+			margin-bottom: 1rem!important;
+		}
+		.post-min-main{
+			width: 100%;
 		}
 	}
 }
