@@ -21,10 +21,10 @@ $rand = rand(1000,9999);
 	</svg>
 	
 	<div class="main-container">
-		<div class="contenedor-principal" style="background-image:url('<?php echo $fotos['base']['url'];?>')">
+		<div class="contenedor-principal" style="background-image:url('<?php //echo $fotos['base']['url'];?>')">
 			<h1 class="mega"><?php echo get_field('titulo');?></h1>		
 			<?php if(get_field('bajada')):?>
-			<div class="bajada tit-dos"><?php echo get_field('bajada'); ?></div>
+			<div class="bajada subtit-tres"><?php echo get_field('bajada'); ?></div>
 			<?php endif; ?>
 		</div>
 		

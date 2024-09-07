@@ -1,6 +1,11 @@
 <?php 
 	global $post;
-    $post_slug = $post->post_name;
+	
+  $post_slug = '';
+  if($post){
+  	$post_slug = $post->post_name;
+  }
+
 
     
     ?>
@@ -24,10 +29,10 @@
 <?php wp_body_open(); ?>
 <div id="wrapper" class="hfeed">
 	<?php if($post_slug != 'landing'):?>
-<header id="header" role="banner">
+<header id="header" class="blurred-container" role="banner">
 	<div class="main-container">
 		<div class="logo">
-			<h1><a href="/"><img src="<?php echo get_template_directory_uri()?>/dist/img/st_logo_green.svg" alt="STÄMM"></a></h1>
+			<h1><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri()?>/dist/img/st_logo_green.svg" alt="STÄMM"></a></h1>
 		</div>
 		<div class="nav">
 			<a class="hamb">

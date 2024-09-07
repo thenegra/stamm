@@ -4,6 +4,7 @@ $(document).ready(function(){
 		checkScroll();
 	});
 	checkScroll();
+	startGalleries();
 	if($(window).width()<=1024){
 		$('.nav .menu ul').hide();
 	}
@@ -15,6 +16,15 @@ $(document).ready(function(){
 			$('.nav .menu ul').slideUp();
 		}
 	});
+
+
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+    var _h = $($.attr(this, 'href')).offset().top;
+    $('html, body').animate({
+        scrollTop: _h
+    },1000);
+});
 });
 function checkScroll(){
 	if($(window).scrollTop()>100){
@@ -22,4 +32,9 @@ function checkScroll(){
 	} else{
 	$('#header').removeClass('sticky');
 }
+}
+function startGalleries(){
+	$('.inner-galeria').slick({
+		autoplay:true,arrows:false,fade: true,infinite:true
+	})
 }

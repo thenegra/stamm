@@ -3,3 +3,7 @@
 'next_text' => sprintf( esc_html__( 'newer %s', 'blankslate' ), '<span class="meta-nav">&rarr;</span>' )
 );
 the_posts_navigation( $args );
+?>
+
+<p>Testing
+</p>

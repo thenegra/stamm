@@ -6,6 +6,7 @@
 			
 			<div class="texto">
 				<h3 class="tit-uno"><?php echo get_field('titulo');?></h3>
+				
 			<div class="space"></div>
 			
 				<?php echo get_field('contenido'); ?>
@@ -18,7 +19,28 @@
 				<?php endif;?>
 		</div>
 		<div class="columna foto">
-			<img src="<?php echo get_field('foto')['url']; ?>" alt="<?php echo get_field('titulo');?>">
+			<?php
+			$galeria = get_field('foto');
+				if(count($galeria)>1):
+					?>
+					<div class="inner-galeria modulo-galeria">
+						<?php foreach($galeria as $foto):?>
+							<div class="foto">
+								<div class="img-container">
+		<?php echo wp_get_attachment_image($foto['ID'],'foto-hq'); ?>
+							</div>
+							</div>
+		<?php endforeach;?>
+					</div>
+					<!--
+					<img src="<?php echo get_field('foto')['url']; ?>" alt="<?php echo get_field('titulo');?>" -->
+					<?php
+				else:
+					?>
+					<img src="<?php echo $galeria[0]['url']; ?>" alt="<?php echo get_field('titulo');?>">
+					<?php
+				endif;
+				?>
 		</div>
 	</div>
 </section>

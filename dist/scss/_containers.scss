@@ -1,0 +1,77 @@
+.column-container{
+	@include flexbox();
+	@include justify-content(space-between);
+	@include flex-wrap(wrap);
+	.column{
+		width: 49%;
+		margin: 1% 0;
+		@media all and (max-width: 768px){
+			width: 100%;
+		}
+	}
+	&.no-gut{
+		.column{
+			margin:0;
+		}
+		&.two{
+			.column{
+				width: 50%;	
+			}
+		}
+		&.three{
+			.column{
+				width: 33.33%;	
+			}
+		}
+		&.four{
+			.column{
+				width: 25%;	
+			}
+		}
+	}
+	@media all and(min-width: 769px){
+		&.two{
+		.column{
+			width: 49%;
+		}
+	}
+	&.three{
+		.column{
+			width: 32%;
+		}
+	}
+	&.four{
+		.column{
+			width: 24.5%;
+		}
+	}
+	}
+	
+
+}
+
+.half-main{
+	width: calc(var(--main-width) / 2);
+	
+	&.to-right{
+		margin-left: auto;
+	}
+	&.to-left{
+		margin-right: auto;
+	}
+}
+
+.main-container{
+	display: block;
+	width: var(--main-width);
+	margin: auto;
+	
+	@media all and (max-width: 1024px){
+		//width: 90%;
+		&.mob-full{
+			width: 100%;
+		}
+
+	}
+
+}

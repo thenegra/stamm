@@ -1,13 +1,14 @@
-<?php 
+<?php
+$fotos = get_field('imagenes_feature');
 $rand = rand(1000,9999);
-get_header(); ?>
-<main id="content" role="main">
-<article id="post-0" class="post not-found">
-	<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-negro" style="background-image:url('<?php echo get_template_directory_uri(); ?>/dist/img/bg-module.jpg')">
+
+?>
+</div>
+<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
 	<div class="test-imagen"></div>
 	
 	<div class="mascara-container">
-		<div class="imagen-mask" style="background-image:url('<?php echo get_template_directory_uri(); ?>/dist/img/bg-module.jpg')"></div>
+		<div class="imagen-mask" style="background-image:url('<?php echo get_field('foto')['url'];?>')"></div>
 		</div>
 	<svg >
 		<defs>
@@ -21,13 +22,35 @@ get_header(); ?>
 	
 	<div class="main-container">
 		<div class="contenedor-principal" data-anim=true data-scroll-speed=.5 style="background-image:url('<?php // echo $fotos['base']['url'];?>')">
-			<h1 class="sub-mega"><?php esc_html_e( 'Not Found', 'blankslate' ); ?></h1>		
+			<h1 class="sub-mega"><?php echo get_field('titulo');?></h1>		
+			<?php if(get_field('bajada')):?>
+			<div class="bajada subtit-tres"><?php echo get_field('bajada'); ?></div>
+			<?php endif; ?>
+			<?php
+			if(get_field('has_link')):
+			switch (get_field('link_type')) {
+				case 'contact':
+					?>
+					<div class="cta-container">
+				
 			
-			<div class="bajada subtit-tres">
-				<p><?php esc_html_e( 'Nothing found for the requested page. Want to go home?', 'blankslate' ); ?></p>
-			</div>
-			<a class="boton" href="<?php echo get_home_url(); ?>">Go to homepage</a>
-			
+					<a class="boton" href="#footer"><?php echo get_field('button_text');?></a>
+					</div>
+					<?php
+					break;
+				case 'link':
+				?>
+
+					<a class="boton" href="<?php echo get_field('link')['url'];?>"><?php echo get_field('link')['title'];?></a>
+					<?php
+					break;
+				default:
+					?>
+					<?php
+					break;
+			}
+			endif;
+			?>
 			
 		</div>
 		
@@ -65,12 +88,4 @@ get_header(); ?>
 		}
 	</script>
 </section>
-<header class="header">
-
-</header>
-<div class="entry-content" itemprop="mainContentOfPage">
-
-</div>
-</article>
-</main>
-<?php get_footer(); ?>
+<div class="main-container">

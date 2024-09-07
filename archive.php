@@ -6,8 +6,8 @@
 </header>
 <?php /* if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php get_template_part( 'entry' ); ?>
-<?php endwhile; endif; ?>
-<?php get_template_part( 'nav', 'below' ); */ ?>
+<?php endwhile; endif; */?>
+
 </main>
 <main id="content" role="main">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -34,12 +34,17 @@
 	<?php //comments_template(); ?>
 	<?php endwhile; endif; ?>
 		</div>
+
 		<header class="blog-nav">
 			<h3 >Categories</h3>
 			<?php wp_nav_menu('Blog menu'); ?>
 		</header>
 	</div>
+	<?php 
+	wp_pagenavi();
+	//get_template_part( 'nav', 'below' );  ?>
 	<div class="space"></div>
+
 	<div class="space"></div>
 </main>
 <?php get_footer(); ?>

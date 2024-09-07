@@ -1,0 +1,37 @@
+:root{
+	--header-padding: 5%;
+	--small-text: .9rem;
+	--article-width: 35vw;
+	--article-title: 2.7rem;
+	--main-width: 1480px;
+	@media all and (max-width: 1645px){
+		--main-width: 90vw;
+	}
+	@media all and (max-width: 768px){
+		--small-text: .8rem;
+		--article-width: 50vw;
+		--article-title: 2.1rem;
+	}
+	@media all and (max-width: 480px){
+		--article-width: 80vw;
+	}
+}
+
+.small-text{
+	font-size: var(--small-text);
+}
+
+.texto{
+	p{
+		margin-bottom: .5em;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&.small{
+		font-size: 1em;
+		p{
+			font-size: 1em;
+		}
+	}
+}

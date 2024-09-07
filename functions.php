@@ -30,10 +30,14 @@ function blankslate_enqueue() {
 wp_enqueue_style('Font_Awesome');
 	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css');
 	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-	
+	wp_enqueue_style('glide-core',get_template_directory_uri().'/dist/css/glide.core.min.css');
+	wp_enqueue_style('glide-theme',get_template_directory_uri().'/dist/css/glide.theme.min.css');
 	wp_enqueue_script( 'jquer','https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
+	wp_enqueue_script( 'paral',get_template_directory_uri().'/dist/js/_paral.js');
 	wp_enqueue_script( 'main',get_template_directory_uri().'/dist/js/main.js');
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
+	wp_enqueue_script( 'glide','https://cdn.jsdelivr.net/npm/@glidejs/glide' );
+	wp_enqueue_script('fontawesome','https://kit.fontawesome.com/9f1dbd0974.js');
 	wp_enqueue_script('gs','https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js');
 }
 add_action( 'wp_footer', 'blankslate_footer' );
@@ -165,11 +169,48 @@ function my_acf_init() {
 	// check function exists
 	if( function_exists('acf_register_block') ) {
 		
-		// register a testimonial block
+		
 		acf_register_block(array(
 			'name'				=> 'mod-hero',
 			'title'				=> __('Content: Page hero'),
 			'description'		=> __('Bloque de destacado principal de una página'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-hero-contents',
+			'title'				=> __('Content: Page hero + contents'),
+			'description'		=> __('Page hero that includes text contents'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-hero-contents-b',
+			'title'				=> __('Content: Featured + contents'),
+			'description'		=> __('Page hero that includes text contents'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		
+		acf_register_block(array(
+			'name'				=> 'mod-four',
+			'title'				=> __('Content: Four images'),
+			'description'		=> __('Bloque de cuatro imagenes con contenido'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-biorreactor',
+			'title'				=> __('Content: Biorreactor'),
+			'description'		=> __('Biorreactor graph block'),
 			'render_callback'	=> 'render_block_acf',
 			'category'			=> 'design',
 			'icon'				=> 'media-spreadsheet',
@@ -257,6 +298,15 @@ function my_acf_init() {
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
 		acf_register_block(array(
+			'name'				=> 'mod-big-hero-b',
+			'title'				=> __('Content: Big hero MVP'),
+			'description'		=> __('Hero principal de la home'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
 			'name'				=> 'mod-team-search',
 			'title'				=> __('Content: Team search'),
 			'description'		=> __('Módulo de búsquedas activas'),
@@ -278,6 +328,15 @@ function my_acf_init() {
 			'name'				=> 'mod-adjunto',
 			'title'				=> __('Content: Adjunto'),
 			'description'		=> __('Elemento adjunto (White paper, etc)'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-news',
+			'title'				=> __('Content: Latest News'),
+			'description'		=> __('Latest news module'),
 			'render_callback'	=> 'render_block_acf',
 			'category'			=> 'design',
 			'icon'				=> 'media-spreadsheet',
@@ -468,3 +527,38 @@ function append_attr_to_element(&$element, $attr, $value)
     else
         $element->setAttribute($attr, $value); //Set attribute
 }
+
+
+
+
+function getBlockHeader(){
+	if(get_field('has_header')):
+	?>
+	<header class=" block-header " >
+		<h2 class="tit-dos"><?php echo get_field('header_text'); ?></h2>
+		<div class="contenido"><?php echo get_field('bajada'); ?></div>
+		<?php if(get_field('header_has_link') && get_field('header_link')):?>
+		<div class="cta-container">
+		
+			<a href="<?php echo get_field('header_link')['url']; ?>" target="<?php echo get_field('header_link')['target']; ?>" class="boton"><?php echo get_field('header_link')['title'];?></a>
+		</div>
+		<?php endif;?>
+	</header>
+	<?php
+	endif;
+
+}
+
+function enqueue_admin_custom_css(){
+	wp_enqueue_style( 'admin-custom', get_stylesheet_directory_uri() . '/dist/css/admin.css' );	
+}
+
+
+add_action( 'admin_enqueue_scripts', 'enqueue_admin_custom_css' );
+
+
+
+function fix_media_views_css() {
+    echo '<link rel="stylesheet" id="fix-media-views-css" href="'.get_bloginfo('url').'/wp-includes/css/media-views.min.css?ver=5.9.1" media="all">';
+}
+add_action('admin_footer', 'fix_media_views_css');

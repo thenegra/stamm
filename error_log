@@ -1,0 +1,8 @@
+[08-May-2023 23:37:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/stammbio/public_html/wp-content/themes/stamm/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/stammbio/public_html/wp-content/themes/stamm/index.php on line 1
+[10-May-2023 22:23:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/stammbio/public_html/wp-content/themes/stamm/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/stammbio/public_html/wp-content/themes/stamm/index.php on line 1

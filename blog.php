@@ -27,6 +27,9 @@
 			<?php wp_nav_menu('Blog menu'); ?>
 		</header>
 	</div>
+	<?php 
+	wp_pagenavi();
+	//get_template_part( 'nav', 'below' );  ?>
 	<div class="space"></div>
 	<div class="space"></div>
 </main>
