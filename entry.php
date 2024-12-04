@@ -1,15 +1,14 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-min'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('small-post column'); ?>>
 <header class="post-min-header">
-	<div class="image" style="background-image: url('<?php echo get_the_post_thumbnail_url(false,'full'); ?>')">
-		
+	<div class="post-image" >
+		<?php echo get_the_post_thumbnail(); ?>
 	</div>
 </header>
 <main class="post-min-main">
-	<div>
-		<h3 class="tit-tres"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+	<div class="post-contents">
 		<?php $tags = get_the_category();
 		if($tags):?>
-		<nav class="categorias">
+		<nav class="categorias small-text">
 			<ul>
 				<?php foreach($tags as $tag):?>
 				<li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
@@ -17,9 +16,11 @@
 			</ul>
 		</nav>
 		<?php endif;?>
+		<h3 class="subtit-dos"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+		
 		<div class="texto small">
-			<?php the_excerpt(); ?>
-			<?php $tags = get_the_tags();
+			<?php // the_excerpt(); ?>
+			<?php /* $tags = get_the_tags();
 		if($tags):?>
 		<nav class="tags">
 
@@ -28,10 +29,10 @@
 				<?php foreach($tags as $tag):?><li><a href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li><?php endforeach;?>
 			</ul>
 		</nav>
-		<?php endif;?>
+		<?php endif; */?>
 		</div>	
 	</div>
-	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> target="_blank" <?php // endif;?>>Read more</a>
+	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> <?php // endif;?>>Read more</a>
 </main>
 <?php
  /* function isexternal($url) {

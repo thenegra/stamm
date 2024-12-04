@@ -21,6 +21,7 @@ $txt_color = (get_field('text_color')) ? get_field('text_color') : 'white';
 			</div>
 			<?php
 			if(get_field('has_link')):
+				var_dump(get_field('link_type'));
 			switch (get_field('link_type')) {
 				case 'contact':
 					?>

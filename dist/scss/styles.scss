@@ -16,11 +16,27 @@ $c_verde: #00d89d;
 @import "blocks";
 @import "vars";
 @import "spacing";
-
-
+html :where(.wp-block){
+	max-width: 100%;
+	margin: 0;
+}
+.only-desk{
+	@media all and (max-width: 768px){
+		display: none!important;
+	}
+}
+.only-mob{
+	@media all and (min-width: 769px){
+		display: none!important;
+	}
+}
+.acf-block-preview{
+	min-height: 0!important;
+}
 p{
 			font-size: inherit;
 		}
+
 html{
 	font-family: 'Archivo',Helvetica,Arial,sans-serif;
 	color: $c_negro;
@@ -122,8 +138,9 @@ width: 5em;
 		font-size: 3.2rem;
 	}
 }
-.tit-uno{
+h1,.tit-uno{
 	font-size: 3rem;
+	margin-bottom: .5em;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
 	font-weight: 300;
 	letter-spacing: -.05em;
@@ -141,6 +158,7 @@ width: 5em;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
 	font-weight: 300;
 	letter-spacing: -.02em;
+	margin-bottom: .5em;
 	@media all and (max-width: 768px){
 		font-size: 1.8rem;
 	}
@@ -150,7 +168,7 @@ width: 5em;
 	}
 	
 }
-.tit-tres{
+h2,.tit-tres{
 	font-size: 2rem;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
 	font-weight: 300;
@@ -187,8 +205,8 @@ h3,.subtit{
 h4,.subtit-dos{
 	font-size: 1.3rem;
 	font-family: 'Chivo',Helvetica,Arial,sans-serif;
-	font-weight: 600;
-	text-decoration: underline;
+	/*font-weight: 600;
+	text-decoration: underline;*/
 	letter-spacing: -.02em;
 	margin-bottom: .5em;
 }
@@ -198,7 +216,7 @@ h4,.subtit-dos{
 .mini-text{
 	padding: .25em .25em 1em .25em;
 	min-height: 3em;
-	background: $c_negro;
+	background: #000;
 	color: $c_blanco;
 	font-size: .8rem;
 }
@@ -217,6 +235,7 @@ h4,.subtit-dos{
 	@include border-radius(1.1em);
 	margin-top: 2em;
 	@include animar();
+	@include text-shadow(none);
 	&:hover{
 		background: $c_blanco;
 	}
@@ -226,38 +245,16 @@ h4,.subtit-dos{
 	&.outline{
 		background: transparent!important;
 		border: 1px solid;
+		color: $c_verde;
 		&:hover{
 			background: transparent;
-			color: $c_verde;
+			color: $c_blanco;
 		}
 	}
 	
 }
 
 /* fondos */
-.f-negro{
-	background-color: $c_negro;
-	color: $c_blanco;
-
-	.boton.outline{
-		color: $c_verde;
-		&:hover{
-			color: $c_blanco;
-		}
-	}
-	.sec-bg{
-		background-color: $c_verde;
-		color: $c_negro;
-	}
-}
-.f-blanco{
-	color: $c_negro;
-	background-color: $c_blanco;
-	.sec-bg{
-		background-color: $c_verde;
-		
-	}
-}
 .f-verde{
 	background-color: $c_verde;
 	color: $c_negro;
@@ -273,7 +270,66 @@ h4,.subtit-dos{
 			color: $c_negro;
 		}
 	}
+	::-moz-selection { /* Code for Firefox */
+  color: $c_verde;
+  background: $c_negro;
 }
+
+::selection {
+  color: $c_verde;
+  background: $c_negro;
+}
+}
+.f-negro{
+	background-color: $c_negro;
+	color: $c_blanco;
+
+		
+	.boton{
+		background-color: $c_verde;
+		color: $c_negro;
+		&:hover{
+			background-color: $c_blanco;
+			color: $c_negro;
+		}
+	}
+	.boton.outline{
+		color: $c_verde;
+		&:hover{
+			color: $c_blanco;
+		}
+	}
+	.sec-bg{
+		background-color: $c_verde;
+		color: $c_negro;
+	}
+	.content-article{
+		h3,h4,h2,strong{
+			color: $c_verde;
+		}
+	}
+
+}
+.f-blanco{
+	color: $c_negro;
+	background-color: $c_blanco;
+	.sec-bg{
+		background-color: $c_verde;
+		
+	}
+	.content-article{
+		h3,h4,h2,strong{
+			color: $c_verde;
+		}
+	}
+	.boton{
+		&:hover{
+			background: $c_negro;
+			color: $c_blanco;
+		}
+	}
+}
+
 .f-gris{
 	background-color: $c_gris;
 	color: $c_negro;
@@ -317,10 +373,10 @@ h4,.subtit-dos{
 	position: relative;
 	padding: 4rem 0;
 	@media all and (max-width: 1024px){
-		padding-bottom: 0;
+		//padding-bottom: 0;
 	}
 	.galeria{
-
+		@extend .border-radius;
 	}
 	.main-container{
 	
@@ -332,7 +388,7 @@ h4,.subtit-dos{
 			@include justify-content(center);
 			
 			li.slick-active{
-					background: $c_blanco!important;
+					//background: $c_blanco!important;
 			}
 		}
 	}
@@ -473,18 +529,26 @@ h4,.subtit-dos{
 	@include flexbox();
 	li{
 		display: block;
-		width: 1rem;
-		height: 1rem;
+		width: .6rem;
+		height: .6rem;
 		cursor: pointer;
-		border: 2px solid;
-
+		border: 1px solid;
+		position: relative;
+		top: .2rem;
 		@include box-sizing(border-box);
 		margin: 0;
 		padding: 0;
 		@include border-radius(50%);
 		margin-right: .5rem;
+		&:last-child{
+			margin-right: 0;
+		}
 		&.slick-active{
-			background: $c_blanco;
+			background: $c_verde;
+			border-color: $c_verde;
+			width: 1rem;
+			height: 1rem;
+			top: 0;
 		}
 		button{
 			font-size: 0;
@@ -526,6 +590,34 @@ h4,.subtit-dos{
 	}
 }
 
+/* Bloque párrafos */
+.modulo-parrafos{
+	padding: 5rem 0 3rem 0;
+	@media all and (max-width: 480px){
+		padding: 3rem 0 1rem 0;
+	}
+	ul{
+		li{
+			display: block;
+			margin-bottom: .5em;
+			&:before{
+				content: "+ ";
+				color: $c_blanco;
+			}
+		}
+	}
+	&.f-negro{
+		ul{
+		li{
+			
+			&:before{
+				
+				color: $c_verde;
+			}
+		}
+	}
+	}
+}
 
 /* Bloque números */
 .modulo-numeros{
@@ -593,6 +685,14 @@ h4,.subtit-dos{
 
 }
 .modulo-uno,.modulo-dos,.modulo-grown	{
+	&.normal{
+		.col-texto .text-contents{
+			@media all and (min-width: 768px){
+				padding-left: 0!important;	
+			}
+			
+		}
+	}
 	&.featured{
 		background: $c_gris;
 		@media all and (min-width: 1025px){
@@ -605,9 +705,16 @@ h4,.subtit-dos{
 			@include flex-direction(column);
 			@include justify-content(space-between);
 			@include align-items(flex-start);
+
 			@media all and (max-width: 1024px){
 				padding: 5%!important;
 			}
+		}
+	}
+	.foto{
+		img{
+			
+			width: 100%;
 		}
 	}
 	.col-texto{
@@ -637,7 +744,7 @@ h4,.subtit-dos{
 		.contenidos{
 			border: 1px solid $c_verde;
 			margin-top: 2rem;
-			 a{
+			a{
 				@media all and (min-width: 1025px){
 				border-right: 1px solid $c_verde;
 				&:last-child{
@@ -658,7 +765,7 @@ h4,.subtit-dos{
 			}
 		}
 	}
-	.main-container{
+	.main-container,.column-container{
 
 		
 		@include flexbox();
@@ -669,13 +776,14 @@ h4,.subtit-dos{
 		}
 
 		.columna{
+			width: 100%!important;
 			@media all and (min-width: 1025px){
-				width: 50%;
+				width: 50vw!important;
 			}
 			.texto{
-
+				margin-left: auto;
 				@media all and (max-width: 1024px){
-					max-width: 80%;
+					//max-width: 80%;
 				}
 			}
 			h3{
@@ -684,12 +792,23 @@ h4,.subtit-dos{
 			.subtit{
 				margin-bottom: .5em;
 			}
-			padding: 3.5rem 5%;
-			@media all and (min-width: 1025px){
-				padding: 4rem 0rem;
-				padding-right: 5%;
+			.text-contents{
+				padding: 3.5rem 5%;
+				width: 100%;
+					
+				
+				@media all and (min-width: 1025px){
+					max-width: calc(var(--main-width) / 2);
+					display: block;
+					width: 100%;
+					
+					margin-left: auto;
+				}
 			}
+			
 			&.foto{
+				min-height: var(--h-photos);
+				
 				.video-container{
 					background: $c_negro;
 					display: block;
@@ -723,15 +842,17 @@ h4,.subtit-dos{
 				overflow: hidden;
 				img{
 					display: block;
-					width: 100.5%;
+					width: 100%;
 					height: 100%;
 					object-fit: cover;
+					object-position: center center;
 					@media all and (max-width: 768px){
-						width: 160%;
-						
-						max-width: 160%;
-						height: auto;
-						margin-left: -30%;	
+						width: 100%;	
+						max-height: 50vh;
+					}
+					@media all and (max-width: 480px){
+						width: 100%;	
+						max-height: 75vh;
 					}
 				}
 			}
@@ -762,7 +883,11 @@ h4,.subtit-dos{
 	&.invertida{
 			@media all and (min-width: 1025px){
 				.columna{
-					padding-left: 4rem;
+					
+					.text-contents{
+						padding-left: 4rem;
+						margin-left: 0;
+					}
 				}
 			.foto{
 				@include order(-10);
@@ -799,7 +924,7 @@ h4,.subtit-dos{
 	&.featured-content{
 		padding: 0;
 		.main-container{
-			min-height: 90vh;
+			min-height: 56.25vw;
 			@include justify-content(center);
 			@include flex-direction(column);
 			@media all and (max-width: 960px){
@@ -816,7 +941,9 @@ h4,.subtit-dos{
 				}
 
 				.content-test{
+					
 					@media all and (min-width: 769px){
+					//	margin-top: 0em;
 						max-width: 12em;	
 					}
 					
@@ -840,7 +967,7 @@ h4,.subtit-dos{
 		}
 	}
 	&.big-hero{
-		min-height: 80vh;
+		min-height: 90vh;
 		position: relative;
 
 		svg{
@@ -866,7 +993,7 @@ h4,.subtit-dos{
 			left: 50%;
 			top: 50%;
 			@include transform(translate(-50%,-50%));
-			
+			@include filter(brightness(86%) blur(.5px));
 			@media all and (orientation:portrait){
 				width: 70vw;
 				height: 70vw;
@@ -923,6 +1050,7 @@ h4,.subtit-dos{
 				@include flexbox();
 				@include flex-direction(column);
 				@include justify-content(center);
+				@include align-items(center);
 			}
 			.main-container{
 
@@ -1001,7 +1129,7 @@ h4,.subtit-dos{
 	}
 	.contenedor-secundario{
 			//background: transparent;
-			width: calc( var(--main-width) / 2);
+			width: calc( var(--main-width) / 2)!important;
 			position: absolute;
 			bottom: -2rem;
 			height: 6rem;
@@ -1069,7 +1197,7 @@ h4,.subtit-dos{
 				bottom: -2rem;
 				top: auto;
 			}
-			width: calc(var(--main-width) / 2);
+			width: 50%;//calc(var(--main-width) / 2);
 			height: 5rem;
 			@media all and (max-width: 768px){
 				display: none;
@@ -1090,6 +1218,9 @@ h4,.subtit-dos{
 	//background: transparent;
 	color: $c_blanco;
 	@include animar();
+	&.hidden{
+		top: -6rem;
+	}
 	.hamb{
 		display: none;
 	}
@@ -1101,14 +1232,36 @@ h4,.subtit-dos{
 		padding-top: .6rem;
 		position: relative;
 		top: -.1rem;
+		h1{
+			margin-bottom: 0;
+		}
 	}
 	.main-container{
 		@include flexbox();
 		@include justify-content(space-between);
-		@include align-items(flex-end);
-		padding: .75rem 0;
+		@include align-items(center);
+		//padding: .75rem 0;
+		.boton{
+			display: inline-block;
+			margin-left: .5em;
+		}
+		.redes{
+
+		}
 		.nav{
 			position: relative;
+			@include flexbox();
+			@include align-items(center);
+			font-size: 1rem;
+
+			.boton{
+				margin-top: 0;
+				color: $c_blanco;
+				font-size: inherit;
+				&:hover{
+					color: $c_verde;
+				}
+			}
 			ul{
 				@include flexbox();
 				li{
@@ -1137,7 +1290,7 @@ h4,.subtit-dos{
 					}
 					.sub-menu{
 						position: absolute;
-						top: calc(100% + 0.75rem);
+						top: calc(100% + 0rem);
 						@media all and (max-width: 1024px){
 							top: 100%;
 						}
@@ -1153,7 +1306,10 @@ h4,.subtit-dos{
 						}
 						a{
 							display: block;
-
+							line-height: 2;
+							padding-top: 0!important;
+							padding-bottom: 0!important;
+							word-wrap: nowrap;
 							&:hover{
 								background: $c_verde;
 								color: $c_negro;
@@ -1172,10 +1328,14 @@ h4,.subtit-dos{
 					}
 					a{
 						display: block;
-						padding: .5rem 1rem;
+						padding: 0rem 1rem;
 						color: inherit;
 						text-decoration: none;
 						text-align: left;
+						@media all and (min-width:1025px){
+							line-height: 4em;	
+						}
+						
 						@include animar();
 
 						&:hover{
@@ -1251,6 +1411,15 @@ h4,.subtit-dos{
 			ul{
 				height: 100%;
 				@extend .separate-vertically;
+				@media all and (max-width: 768px){
+					margin-bottom: 2em;
+					display: block;
+					a{
+						display: block;
+						line-height: 2;
+						font-size: 1.2rem;
+					}
+				}
 			}
 		}
 	}
@@ -1260,6 +1429,9 @@ h4,.subtit-dos{
 		@include justify-content(space-between);
 		@include align-items(center);
 		margin-bottom: 3rem;
+		@media all and (max-width: 768px){
+			display: block;
+		}
 		h1{
 			img{
 				display: block;
@@ -1268,9 +1440,15 @@ h4,.subtit-dos{
 		}
 		.redes{
 			@include flexbox();
+			@media all and (max-width: 768px){
+				margin-top: 1em;
+			}
 			a{
 				color: $c_verde;
 				padding: .25em;
+				&:hover{
+				color: $c_blanco;
+			}
 			}
 			span{
 				display: inline-block;
@@ -1342,15 +1520,25 @@ h4,.subtit-dos{
 		}
 	}
 }
-
+.full-btn{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: all;
+	display: block;
+}
 .full-contact{
 	display: block;
 	padding: 5rem 0;
 }
 #wpadminbar{
-	top: auto;
+	//display: none;
+	/*top: auto;
 	bottom: 0;
-	position: fixed!important;
+	position: fixed!important;*/
 }
 
 
@@ -1587,7 +1775,7 @@ h4,.subtit-dos{
 			@include align-items(flex-start);
 			@include justify-content(space-between);
 			.post-contents{
-				width: 64%;
+				width: 90%;
 				margin-right: 2%;
 			}
 			.blog-nav{
@@ -1602,7 +1790,7 @@ h4,.subtit-dos{
 		}
 		.post-contents{
 			font-size: 1.2rem;
-			max-width: 40rem;
+			max-width: 45rem;
 			img{
 				display: block;
 				width: auto;
@@ -1651,7 +1839,9 @@ h4,.subtit-dos{
 			margin-right: 0;
 		}
 	}
-
+	@media all and (max-width: 768px){
+		display: block;
+	}
 	.post-min-header{
 		width: 48%;
 
@@ -1660,6 +1850,12 @@ h4,.subtit-dos{
 		margin-top: .15em;
 		
 		position: relative;
+		@media all and (max-width: 768px){
+		display: block;
+		width: 100%;
+		margin: 1em 0!important;
+
+		}
 		.image{
 			
 			top: 0;
@@ -1705,6 +1901,11 @@ h4,.subtit-dos{
 		@include flex-direction(column);
 		@include justify-content(space-between);
 		@include align-items(flex-start);
+		@media all and (max-width: 768px){
+		display: block;
+		width: 100%;
+		margin-bottom: 1em;
+		}
 		.boton{
 			font-size: 1em;
 		}
@@ -1878,8 +2079,8 @@ h4,.subtit-dos{
 	.img-container{
 		display: block;
 		width: 100%;
-		height: 0;
-		padding-bottom: 75%;
+		height: var(--h-photos);
+		
 		position: relative;
 		img{
 			position: absolute;
@@ -1895,4 +2096,81 @@ h4,.subtit-dos{
 .post-password-required{
 	padding: 10em 0!important;
 	text-align: center;
+}
+
+
+
+/* Forms */
+.fixed-content{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	background: rgba(0,0,0,.5);
+	@include flexbox();
+	@include flex-direction(column);
+	@include justify-content(center);	
+	.overlay-container{
+		max-height: calc(100vh - (6rem * 2));
+		padding: 2rem;
+		background: $c_blanco;
+		
+		@include border-radius(.5em);
+		overflow: auto;
+	}
+	.button-container{
+		position: relative;
+		top: 1.5em;
+		right: 1em;
+		.boton{
+			width: 3em;
+			line-height: 3em;
+			@include border-radius(1.5em);
+			padding: 0;
+			text-align: center;
+		}
+		.boton{
+			margin-left: auto;
+		}
+	}
+	.form-contents{
+		@include animar();
+		@include scale(.8);
+	}
+	&.open{
+		.form-contents{
+			@include scale(1);
+		}	
+	}
+	.form-container{
+		
+		.form-header{
+			//text-align: center;
+			h2{
+				margin-bottom: 1em;
+				color: $c_verde
+			}
+			margin-bottom: 3em;
+		}
+		.wpforms-container{
+			margin: 0;
+			.wpforms-field{
+				padding: 0;
+				margin-bottom: .5em;
+			}
+		}
+		.wpforms-submit-container{
+			text-align: right;
+		}
+		.wpforms-submit{
+			@extend .boton;
+			background: $c_verde!important;
+			color: $c_negro!important;
+			margin-left: auto;
+			
+			
+		}
+	}
 }

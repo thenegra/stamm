@@ -4,24 +4,24 @@ $block_id = $block["id"];
 ?>
 </div>
 <section class="modulo-news new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
-	
+	<?php getBlockHeader(); ?>
 	<div class="main-container">
-		<?php getBlockHeader(); ?>
+		
 	
 		<div class="glide news-container" id="glide_<?php echo $block_id; ?>">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
     	<?php foreach(get_field('contents') as $content):
 				//var_dump($content['news'][0]);
-				$post_id = $content['news'][0]->ID;
-				$img = wp_get_attachment_image(get_post_thumbnail_id($content['news'][0]->ID),'full');
+				$post_id = $content['news'];
+				$img = wp_get_attachment_image(get_post_thumbnail_id($content['news']),'full');
 				
 				?>
 				<li class="glide__slide">
 				<article class="latest-news-article " style="">
 					<div class="article-inner">
 						<?php echo $img; ?>
-						<div class="contents">
+						<div class="contents f-negro">
 							<h3 class="tit-tres"><?php echo get_the_title($post_id); ?></h3>
 							<a href="<?php echo get_the_permalink($post_id);?>" class="boton small">Read blog</a>
 						</div>
@@ -36,7 +36,8 @@ $block_id = $block["id"];
   </div>
   <div class="controls arrow-container main-container" data-glide-el="controls">
   
-  <button data-glide-dir=">" class="arrow-next"><img src="<?php echo get_template_directory_uri();?>/dist/img/arrow-next.png" alt="Next image" ></button>
+  <button data-glide-dir="&gt;" class="arrow-next" class="">
+  	<i class="fa fa-chevron-right"></i></button>
 </div>
 </div>
 	</div>

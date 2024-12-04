@@ -19,7 +19,9 @@ $txt_color = (get_field('text_color')) ? get_field('text_color') : 'white';
 			</div>
 			<?php
 			if(get_field('has_link')):
+				var_dump(get_field('link_type'));
 			switch (get_field('link_type')) {
+
 				case 'contact':
 					?>
 
@@ -49,7 +51,7 @@ $txt_color = (get_field('text_color')) ? get_field('text_color') : 'white';
 	</div>
 	<div class="secondary">
 	<div class="main-container ">
-		<div class="column-container four">
+		<div class="column-container <?php if(count(get_field('secondary'))%3 == 0):?>three<?php else:?>four<?php endif;?>">
 		
 		<?php foreach(get_field('secondary') as $content):
 			?>

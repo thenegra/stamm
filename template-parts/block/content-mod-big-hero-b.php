@@ -1,14 +1,18 @@
 <?php
 $fotos = get_field('imagenes_feature');
 $rand = rand(1000,9999);
+$bg = get_field('background');
+$bg_type = $bg['type'];
+$bg_image = $bg['image_background'];
+
 
 ?>
 </div>
-<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
+<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-<?php echo get_field('diseno')['fondo']; ?>" <?php if($bg_type == 'image'): ?>style="background-image:url('<?php echo $bg_image['url'];?>')" <?php endif; ?>>
 	<div class="test-imagen"></div>
-	
+	<?php if($bg_type == 'image' && !get_field('logo_mask') ): ?>
 	<div class="mascara-container">
-		<div class="imagen-mask" style="background-image:url('<?php echo get_field('foto')['url'];?>')"></div>
+		<div class="imagen-mask" style="background-image:url('<?php echo $bg_image['url'];?>')"></div>
 		</div>
 	<svg >
 		<defs>
@@ -19,22 +23,30 @@ $rand = rand(1000,9999);
 		</clipPath>
 		</defs>
 	</svg>
-	
+	<?php endif; ?>
+	<?php if($bg_type == 'video'){
+		//var_dump($bg['video']['url']);
+		getVideoBackground($bg['video']);
+	}?>
 	<div class="main-container">
 		<div class="contenedor-principal" data-anim=true data-scroll-speed=.5 style="background-image:url('<?php // echo $fotos['base']['url'];?>')">
 			<h1 class="sub-mega"><?php echo get_field('titulo');?></h1>		
 			<?php if(get_field('bajada')):?>
-			<div class="bajada subtit-tres"><?php echo get_field('bajada'); ?></div>
+			<div class="bajada subtit-tres">
+				<?php echo get_field('bajada'); ?>
+					
+				</div>
 			<?php endif; ?>
 			<?php
 			if(get_field('has_link')):
+
 			switch (get_field('link_type')) {
 				case 'contact':
 					?>
 					<div class="cta-container">
 				
 			
-					<a class="boton" href="#footer"><?php echo get_field('button_text');?></a>
+					<a class="boton" onclick="openForm(<?php echo get_field('form')->ID;?>)"><?php echo get_field('button_text');?></a>
 					</div>
 					<?php
 					break;
@@ -55,6 +67,7 @@ $rand = rand(1000,9999);
 		</div>
 		
 	</div>
+	<?php if(get_field('imagen_safe')):?> 
 	<style type="text/css">
 		#el-<?php echo $rand?>.safari{
 			background-image: url('<?php echo get_field('imagen_safe')['url'];?>')!important;
@@ -63,6 +76,8 @@ $rand = rand(1000,9999);
 			display: none;
 		}
 	</style>
+	<?php endif; ?>
+	<?php if($bg_type == 'image' && !get_field('logo_mask') ): ?>
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -81,11 +96,12 @@ $rand = rand(1000,9999);
 			if(_per<0) _per = 0;
 			var _max = $('.mascara-container').outerHeight()*.55;
 			var _val = -_max+_per*_max;
-			//_el.find('.imagen-mask').css('margin-top',_val);
+			
 			gsap.to(_el.find('.imagen-mask'), {backgroundPosition:"50% "+(60+_per*40)+"%" ,ease:"power3.out",duration:1});
 			var _move = _el.outerHeight()*(.5+.15*_per);
 			gsap.to(_el.find('.mascara-container'), {top:_move ,ease:"power3.out",duration:.7});
 		}
 	</script>
+	<?php endif; ?>
 </section>
 <div class="main-container">

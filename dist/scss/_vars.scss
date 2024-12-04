@@ -4,13 +4,20 @@
 	--article-width: 35vw;
 	--article-title: 2.7rem;
 	--main-width: 1480px;
+	--small-width: 960px;
+	--h-photos: calc(50vw / 4 * 3);
+	--bio-unit-width: 16em;
 	@media all and (max-width: 1645px){
 		--main-width: 90vw;
+	}
+	@media all and (max-width: 1024px){
+		--h-photos: calc(100vw / 2 * 1);
 	}
 	@media all and (max-width: 768px){
 		--small-text: .8rem;
 		--article-width: 50vw;
 		--article-title: 2.1rem;
+		--h-photos: calc(100vw / 16 * 9);
 	}
 	@media all and (max-width: 480px){
 		--article-width: 80vw;

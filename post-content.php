@@ -3,13 +3,16 @@
 	<div class="main-container texto">
 		<!--div class=""></div-->
 		<div class="post-contents">
-			<?php if(has_post_thumbnail()):?>
+			<?php /* if(has_post_thumbnail()):?>
 			<div class="post-thumb">
 				<?php the_post_thumbnail('full'); ?>
 			</div>
-			<?php endif;?>
+			<?php endif; */ ?>
 			<div class="space"></div>
 			<div class="space"></div>
+			<div class="space"></div>
+			<div class="space"></div>
+			
 			<!--header class="post-header">
 	
 				
@@ -18,10 +21,10 @@
 			</header-->
 			<?php the_content(); ?>
 		</div>
-		<header class="blog-nav">
+		<!--header class="blog-nav">
 			<h3 >Categories</h3>
 			<?php wp_nav_menu('Blog menu'); ?>
-		</header>
+		</header-->
 	</div>
 	<div class="space"></div>
 	<div class="space"></div>

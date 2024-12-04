@@ -1,7 +1,8 @@
 </div>
-<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo slugify(get_field('titulo'));?>">
-	<div class="main-container mob-full">
-		<div class="columna col-texto" data-anim=true data-scroll-speed=.6>
+<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; } else{ echo 'normal'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo slugify(get_field('titulo'));?>">
+	<div class=" mob-full column-container two no-gut">
+		<div class="columna column col-texto" data-anim=true data-scroll-speed=.6>
+			<div class="text-contents">
 			<h3 class="tit-dos"><?php echo get_field('titulo');?></h3>
 			<!--div class="space"></div-->
 			<div class="texto">
@@ -12,8 +13,9 @@
 					<a href="<?php echo get_field('boton')['url']; ?>" <?php if(get_field('boton')['is_blank']):?>target="_blank"<?php endif;?> class="boton <?php if(get_field('diseno')['outline'] ):?> outline <?php endif; ?>"><?php echo get_field('boton')['texto']; ?></a>
 				<?php endif;?>
 			</div>
+			</div>
 		</div>
-		<div class="columna foto">
+		<div class="columna column foto">
 			<?php switch (get_field('tipo')) {
 				case 'foto':
 				$galeria = get_field('foto');

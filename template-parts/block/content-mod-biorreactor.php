@@ -14,7 +14,7 @@
 					<p>Integrated cell counting and sampling system to carry out daily harvests and maintain output in optimal conditions before downstream.</p>
 					<h3 class="subtit-dos c-verde">Inoculation module.</h3>
 					<p>An added optional bioreactor designed for the initial introduction and continuous flow of fresh cell lines into the production module.</p>
-					<h3 class="subtit-dos c-verde">Local User Inteface. </h3>
+					<h3 class="subtit-dos c-verde">Local User Interface. </h3>
 					<p>Custom software to provide all the information needed about the ongoing bioprocess or maintenance routine.</p>
 					 
 

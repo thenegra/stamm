@@ -4,7 +4,7 @@ $rand = rand(1000,9999);
 
 ?>
 </div>
-<section id="el-<?php echo $rand; ?>" class="hero big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
+<section id="el-<?php echo $rand; ?>" class="hero  big-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo get_field('foto')['url'];?>')">
 	<div class="test-imagen"></div>
 	
 	<div class="mascara-container">
@@ -29,6 +29,7 @@ $rand = rand(1000,9999);
 		</div>
 		
 	</div>
+	<?php if(get_field('imagen_safe')):?> 
 	<style type="text/css">
 		#el-<?php echo $rand?>.safari{
 			background-image: url('<?php echo get_field('imagen_safe')['url'];?>')!important;
@@ -37,6 +38,7 @@ $rand = rand(1000,9999);
 			display: none;
 		}
 	</style>
+	<?php endif; ?>
 	<script type="text/javascript">
 		$(document).ready(function(){
 

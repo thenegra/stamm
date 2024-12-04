@@ -28,7 +28,7 @@ function blankslate_enqueue() {
 	wp_enqueue_style( 'reset', get_stylesheet_uri() );
 	    wp_register_style( 'Font_Awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 wp_enqueue_style('Font_Awesome');
-	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css');
+	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css?v=14112024');
 	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	wp_enqueue_style('glide-core',get_template_directory_uri().'/dist/css/glide.core.min.css');
 	wp_enqueue_style('glide-theme',get_template_directory_uri().'/dist/css/glide.theme.min.css');
@@ -38,7 +38,8 @@ wp_enqueue_style('Font_Awesome');
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 	wp_enqueue_script( 'glide','https://cdn.jsdelivr.net/npm/@glidejs/glide' );
 	wp_enqueue_script('fontawesome','https://kit.fontawesome.com/9f1dbd0974.js');
-	wp_enqueue_script('gs','https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js');
+	wp_enqueue_script('gs','https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js');
+
 }
 add_action( 'wp_footer', 'blankslate_footer' );
 function blankslate_footer() {
@@ -253,6 +254,15 @@ function my_acf_init() {
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
 		acf_register_block(array(
+			'name'				=> 'mod-carrousel-back',
+			'title'				=> __('Content: Content + carrousel back'),
+			'description'		=> __('Bloque de frase destacada'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
 			'name'				=> 'mod-numeros',
 			'title'				=> __('Content: Numbers'),
 			'description'		=> __('Bloque de números destacados'),
@@ -307,6 +317,15 @@ function my_acf_init() {
 			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
 		));
 		acf_register_block(array(
+			'name'				=> 'mod-big-hero-slider',
+			'title'				=> __('Content: Big hero slider'),
+			'description'		=> __('Hero principal de la home'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'subproyectos', 'sub', 'proyectos' ),
+		));
+		acf_register_block(array(
 			'name'				=> 'mod-team-search',
 			'title'				=> __('Content: Team search'),
 			'description'		=> __('Módulo de búsquedas activas'),
@@ -337,6 +356,69 @@ function my_acf_init() {
 			'name'				=> 'mod-news',
 			'title'				=> __('Content: Latest News'),
 			'description'		=> __('Latest news module'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-slides',
+			'title'				=> __('Content: Slides contents'),
+			'description'		=> __('Slides module'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-paragraphs',
+			'title'				=> __('Content: Paragraph container'),
+			'description'		=> __('A module for paragraphs'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-biorreactor-new',
+			'title'				=> __('Content: Biorreactor module'),
+			'description'		=> __('A module for paragraphs'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-content-image',
+			'title'				=> __('Content: Header + Full image'),
+			'description'		=> __('A module for paragraphs'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-culture-texts',
+			'title'				=> __('Content: Culture - Big texts'),
+			'description'		=> __('A module for culture'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-facilities-map',
+			'title'				=> __('Content: Facilities map'),
+			'description'		=> __('A module for culture'),
+			'render_callback'	=> 'render_block_acf',
+			'category'			=> 'design',
+			'icon'				=> 'media-spreadsheet',
+			'keywords'			=> array( 'adjunto', 'attachment', 'white paper' ),
+		));
+		acf_register_block(array(
+			'name'				=> 'mod-timeline',
+			'title'				=> __('Content: Timeline'),
+			'description'		=> __('A module a timeline'),
 			'render_callback'	=> 'render_block_acf',
 			'category'			=> 'design',
 			'icon'				=> 'media-spreadsheet',
@@ -533,6 +615,49 @@ function append_attr_to_element(&$element, $attr, $value)
 
 function getBlockHeader(){
 	if(get_field('has_header')):
+
+	?>
+	<header class=" block-header " >
+		<div class="main-container">
+		<h2 class="tit-dos"><?php echo get_field('header_text'); ?></h2>
+		<div class="contenido"><?php echo get_field('bajada'); ?></div>
+		<?php if(get_field('header_has_link') && get_field('link_type') == 'link'):?>
+		<div class="cta-container">
+			
+			<a href="<?php echo get_field('header_link')['url']; ?>" target="<?php echo get_field('header_link')['target']; ?>" class="boton"><?php echo get_field('header_link')['title'];?></a>
+		</div>
+		<?php endif;?>
+		<?php if(get_field('header_has_link') && get_field('link_type') == 'form'):?>
+		<div class="cta-container">
+			
+			<a onclick="openForm(<?php echo get_field('form')->ID; ?>)"class="boton"><?php echo get_field('button_text');?></a>
+		</div>
+		<?php endif;?>
+		</div>
+	</header>
+	<?php
+	endif;
+
+}
+function getCTA($obj){
+	
+	if($obj['has_link'] && $obj['link_type'] == 'link'):?>
+		<div class="cta-container">
+			
+			<a href="<?php echo $obj['link']['url']; ?>" target="<?php echo $obj['link']['target']; ?>" class="boton"><?php echo $obj['link']['title'];?></a>
+		</div>
+		<?php endif;
+	if($obj['has_link'] && $obj['link_type'] == 'form'):?>
+		<div class="cta-container">
+			
+			<a onclick="openForm(<?php echo $obj['form']->ID; ?>)"class="boton"><?php echo $obj['button_text'];?></a>
+		</div>
+		<?php endif;
+
+}
+function getBlHeader(){
+	/*
+	if(get_field('has_header')):
 	?>
 	<header class=" block-header " >
 		<h2 class="tit-dos"><?php echo get_field('header_text'); ?></h2>
@@ -546,11 +671,12 @@ function getBlockHeader(){
 	</header>
 	<?php
 	endif;
+	*/
 
 }
 
 function enqueue_admin_custom_css(){
-	wp_enqueue_style( 'admin-custom', get_stylesheet_directory_uri() . '/dist/css/admin.css' );	
+	wp_enqueue_style( 'admin-custom', get_stylesheet_directory_uri() . '/dist/css/styles.css' );	
 }
 
 
@@ -562,3 +688,110 @@ function fix_media_views_css() {
     echo '<link rel="stylesheet" id="fix-media-views-css" href="'.get_bloginfo('url').'/wp-includes/css/media-views.min.css?ver=5.9.1" media="all">';
 }
 add_action('admin_footer', 'fix_media_views_css');
+
+
+function getVideoBackground($video){
+	
+	?>
+	<div class="video-back" data-aspect="<?php echo ($video['width']/$video['height']); ?>">
+		<div class="video-container">
+			<video loop="loop" autoplay="true" playsinline="true" muted="true" id="mejs_6204682393310839_html5" preload="none" src="<?php echo $video['url']; ?>">
+							<source type="video/mp4" src="html5" preload="none" src="<?php echo $video['url']; ?>">
+				
+						</video>
+		</div>
+	</div>
+	<?php
+	
+}
+
+
+function getButton($link,$class=''){
+	
+	if($link['has_link']):
+		if($link['type']=='link'):
+			$lk = $link['link'];
+	?>
+	<a href="<?php echo $lk['url'];?>" target="<?php echo $lk['target']; ?>" class="boton <?php echo $class?>"><?php echo $lk['title']; ?></a>
+	<?php
+		elseif($link['type']=='form'):
+			var_dump($link);
+			?>
+			<a onclick="alert('open form');" class="boton <?php echo $class?>"><?php echo $link['text']; ?></a>
+			<?php
+		endif;
+	endif;	
+}
+
+
+
+function getFormPopup($form){
+
+	?>
+	<div class="fixed-content " style="display:none" id="form-<?php echo $form->ID; ?>">
+	<div class="small-container form-contents">
+		<div class="button-container">
+				<div class="slick-arrow">
+				<a class="boton" onclick="closeForm(<?php echo $form->ID; ?>);">
+					<i class="fa-solid fa-close " > </i>
+				</a>
+				</div>
+			</div>
+		<div class="form-container overlay-container">
+			<header class="form-header">
+				<h2 class="tit-uno"><?php 
+				echo get_the_title($form);
+				?></h2>
+			</header>
+			<?php echo do_shortcode('[wpforms id="'.$form->ID.'" title="false"]'); ?>			
+		</div>
+	
+	</div>
+</div>
+	<?php
+}
+
+function getTriangleLogo(){
+	?>
+<svg class="triangle-logo" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000">
+
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M952.82,1000H47.18c-14.99,0-28.91-7.76-36.78-20.5-7.88-12.75-8.59-28.68-1.89-42.08L461.33,31.79c7.33-14.65,22.3-23.9,38.68-23.9s31.35,9.25,38.68,23.9l452.81,905.64c6.7,13.4,5.99,29.32-1.89,42.07-7.88,12.74-21.8,20.5-36.78,20.5ZM139.48,913.52h721.04c10.26,0,16.93-10.8,12.34-19.97L512.35,172.5c-5.09-10.17-19.6-10.17-24.69,0L127.14,893.55c-4.59,9.18,2.08,19.97,12.34,19.97Z"/>
+  <circle class="st0" cx="107.33" cy="60.14" r="60.14"/>
+  <circle class="st0" cx="892.68" cy="60.14" r="60.14"/>
+</svg>
+	<?php
+}
+function getCategoryNav(){
+	?>
+	<div class="main-container">
+		<!--header class="blog-nav">
+			<h3 >Categories</h3>
+			<?php // wp_nav_menu('Blog menu'); ?>
+		</header-->
+
+		<div class="categories-nav">
+			
+			<?php $tags = get_categories();
+		if($tags):?>
+		<nav class="categorias small-text">
+
+
+			<ul>
+				<li ><a <?php if(!is_category()):?>class="selected"<?php endif; ?> href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">All</a></li>
+				<?php foreach($tags as $tag):?>
+				<li><a <?php if(is_category($tag->term_id)):?>class="selected"<?php endif; ?> href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
+				<?php endforeach;?>
+			</ul>
+		</nav>
+		<?php endif;?>
+		</div>
+	</div>
+	<?php
+}
