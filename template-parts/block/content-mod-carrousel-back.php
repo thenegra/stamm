@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; }?> f-negro" id="<?php echo slugify(get_field('titulo'));?>">
+<section class="modulo-uno <?php if(get_field('invertir')){ echo 'invertida'; }?> f-negro" id="<?php echo slugify(get_field('titulo'));?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="mob-full column-container two block-carrousell no-gut">
 		<div class="columna column col-texto" data-anim=true data-scroll-speed=.6>
 			<div class="text-contents">

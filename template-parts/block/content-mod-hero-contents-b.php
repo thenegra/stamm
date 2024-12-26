@@ -4,7 +4,7 @@ $txt_color = (get_field('text_color')) ? get_field('text_color') : 'white';
 ?>
 </div>
 
-<section class="hero featured-content f-<?php echo get_field('diseno')['fondo']; ?>" style="">
+<section class="hero featured-content f-<?php echo get_field('diseno')['fondo']; ?>" style="" id="<?php echo get_field('block_slug'); ?>">
 	<img src="<?php echo $fotos['fondo']['url'];?>" alt="background-image" class="background-image">
 	<div class="main-container">
 		<div class="contenedor-principal highlighted-content inner-padding blurred-container <?php if(get_field('right')):?>right <?php endif;?> c-<?php echo $txt_color; ?>" <?php if($fotos['base']):?>style="background-image:url('<?php echo $fotos['base']['url'];?>')"<?php endif; ?> data-anim=true >

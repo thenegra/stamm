@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-slider <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-slider <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?> id="<?php echo get_field('block_slug'); ?>"">
 	<div class="main-container">
 		<header>
 			<h2 class="tit-uno"><?php echo get_field('titulo');?></h2>

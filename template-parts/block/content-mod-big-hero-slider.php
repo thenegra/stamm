@@ -5,18 +5,28 @@ $rand = rand(1000,9999);
 $bg_type = $bg['type'];
 $bg_image = $bg['image_background'];*/
 
+$id = generateRandomString(10);
 
 ?>
 </div>
-<div class="hero-slider ">
+
+	<div class="hero-slider" id="<?php echo get_field('block_slug'); ?>">
+			<div class="glide" id="gal-<?php echo $id; ?>">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      
+      
+    
+		
+
 <?php foreach(get_field('slides') as $slide):
 	$bg = $slide['background'];
 	$bg_type = $bg['type'];
 	$bg_image = $bg['image_background'];
 	
 	?>
-	<div>
-<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-negro" <?php if($bg_type == 'image'): ?>style="background-image:url('<?php echo $bg_image['url'];?>')" <?php endif; ?>>
+	
+<section id="el-<?php echo $rand; ?>" class="glide__slide hero mvp big-hero f-negro" <?php if($bg_type == 'image'): ?>style="background-image:url('<?php echo $bg_image['url'];?>')" <?php endif; ?>>
 	<?php if($bg_type == 'image'): ?>
 	<div class="mascara-container">
 		<div class="imagen-mask" style="background-image:url('<?php echo $bg_image['url'];?>')"></div>
@@ -61,36 +71,34 @@ $bg_image = $bg['image_background'];*/
 	</style>
 	
 </section>
-</div>
+
 <?php endforeach; ?>
+
+		</ul>
+  </div>
+  <div class="glide__bullets" data-glide-el="controls[nav]">
+  	<?php $ct = 0;
+  	foreach(get_field('slides') as $slide): ?>
+            <button class="slider__bullet glide__bullet" data-glide-dir="=<?php echo $ct; ?>"></button>
+            <?php $ct++; endforeach;?> 
+            
+        </div>
 </div>
+		</div>
 <script type="text/javascript">
-			jQuery(document).ready(function(){
-
-			jQuery('.hero-slider').slick({dots:true,arrows:false,autoplay:true, autoplaySpeed: 2000,speed:500,fade: true,adaptiveHeight:false});
-		});
-	
-		$(document).ready(function(){
-
-			var _el = $('#el-<?php echo $rand?>');
-			if(navigator.vendor ==  "Apple Computer, Inc."){
-				_el.addClass('safari');	
-			}
-			_checkScroll(_el);
-			$(document).scroll(function(){
-				_checkScroll(_el);
-			})
-		});
-		function _checkScroll(_el){
-			/*
-			var _per = ($(document).scrollTop()-_el.position().top)/(_el.outerHeight());
-			if(_per<0) _per = 0;
-			var _max = $('.mascara-container').outerHeight()*.55;
-			var _val = -_max+_per*_max;
 			
-			gsap.to(_el.find('.imagen-mask'), {backgroundPosition:"50% "+(60+_per*40)+"%" ,ease:"power3.out",duration:1});
-			var _move = _el.outerHeight()*(.5+.15*_per);
-			gsap.to(_el.find('.mascara-container'), {top:_move ,ease:"power3.out",duration:.7});*/
-		}
+	
+		jQuery(document).ready(function(){
+			
+			
+			console.log($('#gal-<?php echo $id; ?>'));
+			var glide = new Glide('#gal-<?php echo $id; ?>', {
+  type: 'slider',
+  focusAt: 'center',
+  perView: 1,
+  autoplay: 3000
+}).mount();
+		});
+
 	</script>
 <div class="main-container">

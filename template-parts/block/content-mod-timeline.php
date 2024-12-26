@@ -7,7 +7,7 @@ $tl = get_field('timeline');
 usort($tl, fn($a, $b) => strcmp($a['year'], $b['year']));
 
 ?>
-<section class="modulo-timeline f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-timeline f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<?php getBlockHeader(); ?>
 	<div class="main-container">
 		<div class="timeline-nav">

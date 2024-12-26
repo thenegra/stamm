@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-dos <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-dos <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<?php foreach(get_field('contenidos') as $content):?>
 		<div class="columna col-texto">

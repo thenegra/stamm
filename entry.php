@@ -32,7 +32,7 @@
 		<?php endif; */?>
 		</div>	
 	</div>
-	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> <?php // endif;?>>Read more</a>
+	<a href="<?php the_permalink(); ?>" class="boton " <?php //if(isexternal(get_the_permalink())): ?> <?php // endif;?>><?php echo $GLOBALS['texts']['blog']['read_more'];?></a>
 </main>
 <?php
  /* function isexternal($url) {

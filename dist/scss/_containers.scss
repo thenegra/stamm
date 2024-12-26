@@ -2,6 +2,7 @@
 	@include flexbox();
 	@include justify-content(flex-start);
 	@include flex-wrap(wrap);
+	width: 100%;
 	.column{
 		width: 49%;
 		margin: 1% .5%;

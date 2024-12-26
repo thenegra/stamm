@@ -3,9 +3,8 @@ $names = array('','two','two','three','four');
 $block_id = $block["id"];
 ?>
 </div>
-<section class="modulo-culture-texts <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
 	<?php //getBlockHeader(); ?>
-	<div class="images-container">
+	<div class="images-container" id="<?php echo get_field('block_slug'); ?>">
 			<?php foreach(get_field('contents') as $time):?>
 				<div class="img-container">
 					<?php if($time['image']):?>
@@ -18,11 +17,16 @@ $block_id = $block["id"];
 	<div class="main-container">
 		<div class="verticals-container">
 			<ul class="vertical-list">
-				<?php foreach(get_field('contents') as $ct):?>
-					<li class="vertical-unit vertical-unit-el mega"><?php echo $ct['title']; ?></li>
-				<?php endforeach;?>
+				<?php if(get_field('fixed_text') && get_field('fixed_position') == 'before'):?>
+				<li class="vertical-unit selected blocked mega"><?php echo get_field('fixed_text'); ?></li>
+			<?php endif; ?>
+				<?php
+				$count = 0;
+				 foreach(get_field('contents') as $ct):?>
+					<li class="vertical-unit vertical-unit-clickable vertical-unit-el mega" id="vertical-unit-<?php echo $count; ?>" data-id="<?php echo $count; ?>"><?php echo $ct['title']; ?></li>
+				<?php $count++; endforeach;?>
 				
-				<?php if(get_field('fixed_text')):?>
+				<?php if(get_field('fixed_text') && get_field('fixed_position') != 'before'):?>
 				<li class="vertical-unit selected blocked mega"><?php echo get_field('fixed_text'); ?></li>
 			<?php endif; ?>
 			</ul>
@@ -43,7 +47,8 @@ $block_id = $block["id"];
 	<script>
 		$('.vertical-unit-el').click(function(){
 			if(!$(this).hasClass('selected')){
-				var _i = $(this).index();
+				var _i = $(this).data('id');
+				//console.log(_id);
 				openCultureText(_i);
 			} else{
 				closeCultureText();
@@ -59,7 +64,7 @@ $block_id = $block["id"];
 		}
 		function openCultureText(_i){
 			$('.vertical-unit-el.selected').removeClass('selected');
-				$('.vertical-unit-el').eq(_i).addClass('selected');
+				$('#vertical-unit-'+_i).addClass('selected');
 				$('.verticals-overlay-container .contents').fadeOut().eq(_i).fadeIn();
 				$('.images-container .img-container').fadeOut().eq(_i).fadeIn();
 		}

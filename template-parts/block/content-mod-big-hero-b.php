@@ -8,7 +8,7 @@ $bg_image = $bg['image_background'];
 
 ?>
 </div>
-<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-<?php echo get_field('diseno')['fondo']; ?>" <?php if($bg_type == 'image'): ?>style="background-image:url('<?php echo $bg_image['url'];?>')" <?php endif; ?>>
+<section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-<?php echo get_field('diseno')['fondo']; ?>" <?php if($bg_type == 'image'): ?>style="background-image:url('<?php echo $bg_image['url'];?>')" <?php endif; ?> id="<?php echo get_field('block_slug'); ?>">
 	<div class="test-imagen"></div>
 	<?php if($bg_type == 'image' && !get_field('logo_mask') ): ?>
 	<div class="mascara-container">

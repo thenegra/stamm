@@ -3,7 +3,7 @@ $fotos = get_field('imagenes_feature');
 $txt_color = (get_field('text_color')) ? get_field('text_color') : 'white';
 ?>
 </div>
-<section class="hero bigger-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo $fotos['fondo']['url'];?>')">
+<section class="hero bigger-hero f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image:url('<?php echo $fotos['fondo']['url'];?>')" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<div class="contenedor-principal highlighted-content inner-padding blurred-container c-<?php echo $txt_color; ?>" <?php if($fotos['base']):?>style="background-image:url('<?php echo $fotos['base']['url'];?>')"<?php endif; ?> data-anim=true>
 			<div class="text-content">

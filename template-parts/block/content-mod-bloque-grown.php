@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-grown <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image: url('<?php echo get_field('fondo')['fondo']['url']; ?>')">
+<section class="modulo-grown <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" style="background-image: url('<?php echo get_field('fondo')['fondo']['url']; ?>')" id="<?php echo get_field('block_slug'); ?>">
 	<!--div class="main-container header inner-padding" style="background-image: url('<?php echo get_field('fondo')['base']['url']; ?>')"-->
 	<div class="main-container header " >
 		<h3 class="tit-uno"><?php echo get_field('titulo'); ?></h3>

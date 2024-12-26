@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-parrafos f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-parrafos f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<?php getBlockHeader(); ?>
 	<div class="main-container">
 		<div class="columns-container <?php echo get_field('columns'); ?>-cols">

@@ -1,9 +1,9 @@
 
 <?php 
-$names = array('','two','two','three','four');
+$names = array('','two','two','three','four','three','three','four','four');
 ?>
 </div>
-<section class="modulo-four new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
+<section class="modulo-four new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<?php getBlockHeader(); ?>
 	<div class="main-container">
 		

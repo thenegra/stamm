@@ -1,6 +1,6 @@
 
 </div>
-<section class="modulo-uno featured <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-uno featured <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container mob-full f-<?php echo get_field('diseno')['fondo']; ?>">
 		<div class="columna inner-padding big-padding col-texto">
 			

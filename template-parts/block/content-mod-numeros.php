@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-numeros f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-numeros f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<ul class="numeros">
 			<?php foreach(get_field('contenidos') as $cont):?>

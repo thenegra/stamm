@@ -1,5 +1,5 @@
 </div>
-<section class="modulo-adjunto f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="modulo-adjunto f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<div class="col text">
 			<h2 class="tit-tres"><?php echo get_field('titulo'); ?></h2>	

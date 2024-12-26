@@ -3,7 +3,7 @@ $names = array('','two','two','three','four');
 $block_id = $block["id"];
 ?>
 </div>
-<section class="modulo-biorreactor-new new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
+<section class="modulo-biorreactor-new new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<?php getBlockHeader(); ?>
 
 	<div class="main-container">

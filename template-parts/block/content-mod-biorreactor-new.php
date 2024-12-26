@@ -3,14 +3,15 @@ $names = array('','two','two','three','four');
 $block_id = $block["id"];
 ?>
 </div>
-<section class="modulo-biorreactor-new new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
-	<?php //getBlockHeader(); ?>
+<section class="modulo-biorreactor-new new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
+	<?php getBlockHeader();
+	/* ?>
 		<!-- Header provisorio -->
 	<header class=" block-header " >
 		<div class="main-container">
 
-		<h2 class="tit-dos">Easy, scalable, customizable & repeatable biomanufacturing.</h2>
-		<!--div class="contenido"><?php echo get_field('bajada'); ?></div-->
+		<h2 class="tit-dos"><?php echo get_field('title'); ?></h2>
+		
 		<?php if(get_field('header_has_link') && get_field('header_link')):?>
 		<div class="cta-container">
 			
@@ -20,6 +21,7 @@ $block_id = $block["id"];
 		</div>
 	</header>
 	<!-- Header provisorio -->
+	*/ ?>
 	<div class="main-container">
 		
 		
@@ -27,6 +29,19 @@ $block_id = $block["id"];
 		<div class="biorreactor-mask">
 		<img alt="Biorreactor" src="<?php echo get_template_directory_uri(); ?>/dist/img/biorreactor_modules_c.jpg" height=1080 width=1920 >
 		<ul class="biorreactor-units">
+			<?php foreach(get_field('bioprocessor_units') as $unit):?>
+				<li class="biorreactor-unit" style="left: <?php echo $unit['left']; ?>%; top: <?php echo $unit['top']; ?>%">
+				<a class="btn-open btn-square">+</a>
+				<a class="btn-close btn-square">-</a>
+				<div class="contents">
+					<h4><?php echo $unit['title']; ?></h4>
+					<div>
+						<?php echo $unit['text']; ?>
+					</div>
+				</div>
+			</li>
+			<?php endforeach;?>
+			<?php /*
 			<li class="biorreactor-unit" style="left: 20%; top: 20%">
 				<a class="btn-open btn-square">+</a>
 				<a class="btn-close btn-square">-</a>
@@ -59,6 +74,7 @@ $block_id = $block["id"];
 					<p>Integrated cell counting and sampling system to carry out daily harvests and maintain output in optimal conditions before downstream.</p>
 				</div>
 			</li>
+			*/ ?>
 		</ul>
 		</div>
 	</main>

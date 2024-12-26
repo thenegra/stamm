@@ -1,4 +1,6 @@
 <?php
+
+
 add_action( 'after_setup_theme', 'blankslate_setup' );
 function blankslate_setup() {
 load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
@@ -29,13 +31,13 @@ function blankslate_enqueue() {
 	    wp_register_style( 'Font_Awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 wp_enqueue_style('Font_Awesome');
 	wp_enqueue_style('style',get_template_directory_uri().'/dist/css/styles.css?v=14112024');
-	wp_enqueue_style('slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+	
 	wp_enqueue_style('glide-core',get_template_directory_uri().'/dist/css/glide.core.min.css');
 	wp_enqueue_style('glide-theme',get_template_directory_uri().'/dist/css/glide.theme.min.css');
 	wp_enqueue_script( 'jquer','https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
 	wp_enqueue_script( 'paral',get_template_directory_uri().'/dist/js/_paral.js');
 	wp_enqueue_script( 'main',get_template_directory_uri().'/dist/js/main.js');
-	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
+	
 	wp_enqueue_script( 'glide','https://cdn.jsdelivr.net/npm/@glidejs/glide' );
 	wp_enqueue_script('fontawesome','https://kit.fontawesome.com/9f1dbd0974.js');
 	wp_enqueue_script('gs','https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js');
@@ -166,7 +168,7 @@ add_action('get_header', 'my_filter_head');
 
 add_action('acf/init', 'my_acf_init');
 function my_acf_init() {
-	
+	$GLOBALS['texts'] = get_field('text_spaces','options');
 	// check function exists
 	if( function_exists('acf_register_block') ) {
 		
@@ -381,8 +383,8 @@ function my_acf_init() {
 		));
 		acf_register_block(array(
 			'name'				=> 'mod-biorreactor-new',
-			'title'				=> __('Content: Biorreactor module'),
-			'description'		=> __('A module for paragraphs'),
+			'title'				=> __('Content: Bioprocessor module'),
+			'description'		=> __(''),
 			'render_callback'	=> 'render_block_acf',
 			'category'			=> 'design',
 			'icon'				=> 'media-spreadsheet',
@@ -784,7 +786,7 @@ function getCategoryNav(){
 
 
 			<ul>
-				<li ><a <?php if(!is_category()):?>class="selected"<?php endif; ?> href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">All</a></li>
+				<li ><a <?php if(!is_category()):?>class="selected"<?php endif; ?> href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php echo $GLOBALS['texts']['blog']['all'];?></a></li>
 				<?php foreach($tags as $tag):?>
 				<li><a <?php if(is_category($tag->term_id)):?>class="selected"<?php endif; ?> href="<?php echo get_term_link($tag); ?>"><?php echo $tag->name; ?></a></li>
 				<?php endforeach;?>
@@ -794,4 +796,107 @@ function getCategoryNav(){
 		</div>
 	</div>
 	<?php
+}
+
+function getPostFooter(){
+	$bf = get_field('blog_footer','options');
+	if($bf && $bf['enabled']):
+	?>
+	<section class="blog-footer f-verde c-negro" >
+	
+	<div class="main-container">
+		<div class="column-container two" data-anim=true data-scroll-speed=.3>
+			<div class="text column">
+				<h2 class="tit-uno"><?php echo $bf['title']; ?></h2>
+				<?php if($bf['contents']): ?>
+				<div class="">
+
+					<?php echo $bf['contents'];?>
+				
+					
+				</div>
+			<?php endif; ?>
+			</div>
+			<div class="column">
+				<?php echo do_shortcode('[wpforms id="'.$bf['form']->ID.'" title="false"]'); ?>	
+			</div>
+			
+		
+		</div>
+		
+	</div>
+</section> 
+	<?php
+endif;
+}
+
+
+function getRelatedPosts() {
+    global $post;
+    // Get the current post's tags
+    $tags = wp_get_post_tags( $post->ID );
+    $cats = wp_get_post_categories(get_the_ID());
+    
+    $catIDs = array();
+    $tagIDs = array();
+    if ( $cats ) {
+        // Fill an array with the current post's tag ids
+        $tagcount = count( $tags );
+        for ( $i = 0; $i < $tagcount; $i++ ) {
+            $tagIDs[$i] = $tags[$i]->term_id;
+        }
+
+        for($i=0;$i<count($cats);$i++){
+        	if(is_numeric($cats[$i])){
+        		$catIDs[$i] = $cats[$i];	
+        	} else{
+        		$catIDs[$i] = $cats[$i]->term_id;	
+        	}
+        	
+        }
+        
+        // Query options, the magic is with 'tag__in'
+        $args = array(
+            //'tag__in' => $tagIDs,
+            'category__in' => $catIDs,
+            'post__not_in' => array( $post->ID ),
+            'showposts'=> 3
+        );
+        $my_query = new WP_Query( $args );
+        // If we have related posts, show them
+        if ( $my_query->have_posts() ) {
+            ?>
+            <section class="related-posts">
+
+							
+	<div class="main-container" style="padding: 3rem 0">
+		<h3><?php echo $GLOBALS['texts']['blog']['related'];?></h3>
+		<div class="posts-container column-container three">
+	
+		
+            <?php
+            while ( $my_query->have_posts() ) {
+                $my_query->the_post();
+                get_template_part( 'entry' );
+                
+            }
+            
+        }
+        ?>
+        
+        <?php
+    }
+    else{
+    	?>
+    	<?php
+    }
+    wp_reset_query();
+    ?>
+    </div>
+		
+	</div>
+	
+		
+</section>
+    <?php
 }

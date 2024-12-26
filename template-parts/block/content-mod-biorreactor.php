@@ -2,7 +2,7 @@
 
 ?>
 </div>
-<section class="block-biorreactor f-blanco" class="">
+<section class="block-biorreactor f-blanco" class="" id="<?php echo get_field('block_slug'); ?>">
 	<div class="column-container no-gut two">
 		<div class="column new-modules ">
 			<div class="half-main to-right inner-padding" data-anim=true data-scroll-speed=.5>

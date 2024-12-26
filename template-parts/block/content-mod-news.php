@@ -1,9 +1,10 @@
 <?php 
 $names = array('','two','two','three','four');
 $block_id = $block["id"];
+
 ?>
 </div>
-<section class="modulo-news new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" >
+<section class="modulo-news new-modules <?php if(get_field('invertir')){ echo 'invertida'; }?> f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>" >
 	<?php getBlockHeader(); ?>
 	<div class="main-container">
 		
@@ -23,7 +24,7 @@ $block_id = $block["id"];
 						<?php echo $img; ?>
 						<div class="contents f-negro">
 							<h3 class="tit-tres"><?php echo get_the_title($post_id); ?></h3>
-							<a href="<?php echo get_the_permalink($post_id);?>" class="boton small">Read blog</a>
+							<a href="<?php echo get_the_permalink($post_id);?>" class="boton small"><?php echo $GLOBALS['texts']['blog']['read_more'];?></a>
 						</div>
 					</div>
 				</article>

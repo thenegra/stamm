@@ -5,7 +5,7 @@
   if($post){
   	$post_slug = $post->post_name;
   }
-
+$names = array('','two','two','three','four','three','three','four','four');
     
  if($post_slug != 'landing'):?>
 </div>
@@ -40,7 +40,7 @@
 
 				?>
 				<ul class="redes">
-					<span>Follow us:</span>
+					<span><?php echo get_field('social_text','options');?></span>
 					<?php foreach(get_field('social','options') as $social) : ?>
 					<li><a href="<?php echo $social['url']; ?>" target="_blank" alt="<?php echo $social['name']; ?>"><i class="fa-brands fa-<?php echo $social['icon']; ?>"></i></a></li>
 					<?php endforeach; ?>
@@ -50,28 +50,19 @@
 					<li><a href="https://m.facebook.com/stammbiotech/" target="_blank"><i class="fa fa-facebook"></i></a></li-->
 				</ul>
 			</div>
-			<ul class="footer-offices addresses column-container three">
-				<li class="address column small-text">
-					<h4 class="subtit-dos">United States HQ</h4>
+			<ul class="footer-offices addresses column-container <?php echo $names[count(get_field('offices','options'))];?>">
+				<?php 
+				
+				foreach(get_field('offices','options') as $office ):?>
+					<li class="address column small-text" style="margin-top:1rem;">
+					<h4 class="subtit-dos"><?php echo $office['title']; ?></h4>
 					<div class="space"></div>
 					<div class="space"></div>
-					<p>220, Halleck St.</p>
-					<p>San Francisco, USA</p>
+					<div class="content">
+						<?php echo $office['address']; ?>
+					</div>
 				</li>
-				<li class="address column small-text">
-					<h4 class="subtit-dos">Argentina</h4>
-					<div class="space"></div>
-					<div class="space"></div>
-					<p>939, Maipú St.</p>
-					<p>Buenos Aires, Argentina</p>
-				</li>
-				<li class="address column small-text">
-					<h4 class="subtit-dos">Switzerland</h4>
-					<div class="space"></div>
-					<div class="space"></div>
-					<p>Rte de l'Ile-au-Bois 1A.</p>
-					<p>Monthey, Switzerland</p>
-				</li>
+				<?php endforeach;?>
 			</ul>
 			
 		</div>

@@ -40,7 +40,8 @@
 			<div class="menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
 			</div>
-			<a onclick="openForm(3801)" class="boton outline ">Contact us</a>
+			<a onclick="openMainForm()" class="boton outline only-mob">Contact us</a>
+			<?php // echo do_shortcode('[wpml_language_switcher type="widget"]')?>
 			<a class="hamb">
 				<i class="fa fa-bars"></i>
 			</a>
@@ -51,5 +52,12 @@
 	
 	
 </header>
+<?php
+$form = get_field('main_form','option');
+
+?>
+<script type="text/javascript">
+	var mainForm = '<?php echo $form->ID; ?>';
+</script>
 <?php endif; ?>
 <div id="container">

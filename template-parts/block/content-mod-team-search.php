@@ -3,7 +3,7 @@ $busquedas = get_field('positions');
 
 ?>
 </div>
-<section class="mod-team-search f-<?php echo get_field('diseno')['fondo']; ?>">
+<section class="mod-team-search f-<?php echo get_field('diseno')['fondo']; ?>" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<p class="c-verde subtit">We're looking for:</p>
 		<?php 

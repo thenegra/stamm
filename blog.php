@@ -1,5 +1,3 @@
-
-
 <main id="content" role="main">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <!--header class="f-negro">
@@ -18,6 +16,7 @@ $rand = rand(1000,9999);
 $bg_image = array();
 $bg_image['url'] = get_template_directory_uri().'/dist/img/discover-stamm.jpg';
 ?>
+
 <section id="el-<?php echo $rand; ?>" class="hero mvp big-hero f-negro" style="background-image:url('<?php echo $bg_image['url'];?>')">
 	<div class="test-imagen"></div>
 	
@@ -36,7 +35,7 @@ $bg_image['url'] = get_template_directory_uri().'/dist/img/discover-stamm.jpg';
 
 	<div class="main-container">
 		<div class="contenedor-principal" data-anim=true data-scroll-speed=.5 style="">
-			<h1 class="sub-mega" style="margin-bottom:0;">Discover Stämm.</h1>		
+			<h1 class="sub-mega" style="margin-bottom:0;"><?php echo $GLOBALS['texts']['blog']['blog_title'];?></h1>		
 			<?php if(get_field('bajada')):?>
 			<div class="bajada subtit-tres">
 				<?php echo get_field('bajada'); ?>
@@ -93,3 +92,4 @@ $bg_image['url'] = get_template_directory_uri().'/dist/img/discover-stamm.jpg';
 	<div class="space"></div>
 	<div class="space"></div>
 </main>
+<?php getPostFooter(); ?>

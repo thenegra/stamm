@@ -3,7 +3,7 @@ $areas = get_terms('area');
 
 ?>
 </div>
-<section class="mod-employees">
+<section class="mod-employees" id="<?php echo get_field('block_slug'); ?>">
 	<div class="main-container">
 		<?php 
 		foreach($areas as $area):
